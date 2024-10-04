@@ -1,0 +1,127 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+import Nav from '../components/Nav.astro';
+const currentPath = Astro.url.pathname;
+
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="explore kevin truong's personal portfolio webpage!"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" href="/icon/favicon.png?" type="image/x-icon">
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<Nav currentPath={currentPath} />
+		<slot />
+		<script src="../scripts/pageTransitions.js"></script>
+	</body>
+</html>
+<style is:global>
+	:root {
+		/* --primary: #F2EFEA;
+		--secondary: #111111; */
+		--primary: #111111;
+		--secondary: #F2EFEA;
+		--accent: #8B8B8B;
+	}
+	html {
+		font-family: Archivo;
+		font-weight: 700;
+		font-size: 50px;
+		background: var(--secondary);
+	}
+	body { 
+		margin: 0;
+		display: flex;
+		min-height: 100vh
+	}
+
+	@keyframes slideUp {
+		0% {
+			transform: translateY(0);
+			opacity: 1;
+		}
+		100% {
+			transform: translateY(-100%);
+			opacity: 0;
+		}
+    }
+	@keyframes slideDown {
+		0% {
+			transform: translateY(100%);
+			opacity: 0;
+		}
+		100% {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+	
+	.slide-up {
+		animation: slideUp 0.5s forwards;
+	}
+
+	.slide-down {
+		animation: slideDown 0.5s forwards;
+	}
+
+	main {
+		animation: slideDown 0.5s ease-in-out forwards;
+		padding: 20px;
+		padding-top: 150px;
+		flex: 1;
+		color: var(--primary);
+		background-color: var(--secondary);
+		align-items: start;
+	}
+
+	@media screen and (max-width: 768px){
+		html {
+			font-family: Archivo;
+			font-weight: 700;
+			font-size: 36px;
+			background: var(--secondary);
+		}
+		body {
+			display: block;
+		}
+		@keyframes slideUp {
+			0% {
+				transform: translateX(0);
+				opacity: 1;
+			}
+			100% {
+				transform: translateX(-100%);
+				opacity: 0;
+			}
+		}
+		@keyframes slideDown {
+			0% {
+				transform: translateX(100%);
+				opacity: 0;
+			}
+			100% {
+				transform: translateX(0);
+				opacity: 1;
+			}
+		}
+		main {
+			padding: 10px;
+			padding-top: 10px;
+		}
+	}
+</style>

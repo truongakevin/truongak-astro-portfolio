@@ -1,0 +1,89 @@
+---
+const { currentPath } = Astro.props;
+
+function isActive(path) {
+console.log(currentPath);
+return currentPath === path ? 'current' : '';
+}
+---
+
+<nav>
+    <!-- <nav class={currentPath === ('/') ? 'nav-slide-in' : ''}> -->
+    <a class={isActive('/')} href="/">KEVINATRUONG</a>
+    <a class={isActive('/info')} href="/info">INFO</a>
+    <!-- <a class={isActive('/contact')} href="/contact">KONTAKT</a> -->
+    <a class={isActive('/projects')} href="/projects">PROJEKTS</a>
+    <a class={isActive('/art')} href="/art">ART</a>
+    <a href="https://open.spotify.com/user/kevinolis" target="_blank" rel="noopener noreferrer">MUSIK</a>
+</nav>
+
+<style>
+    
+    @keyframes navSlideIn {
+        0% {
+            width: 0%;
+            padding: 0;
+        }
+        50% {
+            width: 0%;
+        }
+        100% {
+            width: 30%;
+        }
+    }
+    
+    .nav-slide-in {
+        animation: navSlideIn 1.5s ease-in-out forwards;
+    }
+    
+    nav {
+        width: 30%;
+        background-color: var(--primary);
+        align-items: end;
+        display: flex;
+        flex-direction: column;
+        padding: 100px 20px 0;
+    }
+
+    nav a {
+        color: var(--secondary);
+        text-decoration: none;
+        transition: all .25s ease-in-out;
+    }
+
+    nav a:hover {
+        padding-right: 25px;
+    }
+
+    nav a.current {
+        color: var(--accent);
+        pointer-events: none;
+        cursor: default;
+    }
+
+    nav a.current:hover {
+        padding-right: 0;
+    }
+    
+
+    @media screen and (max-width: 768px){
+        @keyframes navSlideIn {
+            0% {
+                margin: -250px auto;
+            }
+            50% {
+                margin: -250px auto;
+            }
+            100% {
+                margin: 0;
+            }
+        }
+        nav {
+            width: auto;
+            background-color: var(--primary);
+            align-items: end;
+            padding: 10px 10px;
+        }
+    }
+    
+</style>

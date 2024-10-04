@@ -1,0 +1,48 @@
+---
+import { getImages } from '../scripts/generateImages';
+
+const artImages = getImages("art").map((img) => `/art/${img}`);
+
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="art - kevinatruong">
+    <main>
+        <section class="art-gallery">
+            {artImages.map((image) => (
+              <img src={image} alt="Art" />
+            ))}
+        </section>
+    </main>
+</Layout>
+
+
+<style>
+    main {
+        padding-top: 20px;
+    }
+    .art-gallery {
+        column-count: 2;
+        column-gap: 20px;
+    }
+
+    .art-gallery img {
+        margin: 5px 0;
+        width: 100%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+        transition: all .25s ease-in-out;
+    }
+
+    .art-gallery img:hover {
+        scale: 1.025;
+
+    }
+    @media screen and (max-width: 768px){
+        main {
+            padding-top: 10px;
+        }
+        .art-gallery {
+            column-count: 1;
+        }
+    }
+</style>

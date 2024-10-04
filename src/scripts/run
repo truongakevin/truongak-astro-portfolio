@@ -1,0 +1,2 @@
+browser-sync start --server --files "**/*.*"  --port 80
+

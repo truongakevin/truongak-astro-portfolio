@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="projects - kevinatruong">
+	<main>
+        <a id="gh" href="https://github.com/truongakevin">GitHub</a>
+        <br>
+        <a id="ptp" href="/pic-to-playlist">Pic to Playlist</a>
+        <br>
+        <a id="ae" href="/aesthetic-matcher">aesthetic matcher</a>
+	</main>
+</Layout>
+
+<style>
+    a {
+        font-size: 1.75em;
+        text-decoration: none;
+        letter-spacing: -.04em;
+    }
+    #gh {
+        font-family: Helvetica Neue;
+        color: var(--primary)
+    }
+    @font-face {
+        font-family: 'CircularStd';
+		src: url('/fonts/CircularStd/CircularStd-Bold.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+	}
+    #ptp {
+        font-family: CircularStd;
+        color: #1DB954;
+        letter-spacing: -.07em;
+    }
+    #ae {
+        font-family: Rowdies;
+        color: #D39DD3;
+    }
+</style>

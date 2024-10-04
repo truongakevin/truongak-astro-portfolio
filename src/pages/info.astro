@@ -1,0 +1,40 @@
+---
+
+import Layout from '../layouts/Layout.astro';
+import { getImages } from '../scripts/generateImages'
+const artImages = getImages("info").map((img) => `/info/${img}`);
+---
+
+<Layout title="info - kevinatruong">
+	<main>
+        <section class="photos">
+            {artImages.map((image) => (
+              <img src={image} alt="Art" />
+            ))}
+        </section>
+        <section class="information">
+            <!-- <br> -->
+            <p>BORN IN 2001</p>
+            <!-- <br> -->
+            <p>SOFTWARE ENGINEER FROM COLORADO</p>
+            <!-- <br> -->
+            <p>DEVELOPS SOFTWARE AND APPS</p>
+            <!-- <br> -->
+            <p>SPECIALIZES IN WEB DEVELOPMENT AND MACHINE LEARNING</p>
+            <!-- <br> -->
+            <p>MAKES DIGITAL ART, PAINTINGS, AND DRAWINGS</p>
+            <!-- <br> -->
+        </section>
+	</main>
+</Layout>
+
+<style>
+	main {
+        font-size: 24px;
+        font-weight: 550;
+	}
+    .photos img {
+        padding-right: 10px;
+        width: 33%;
+    }
+</style>
