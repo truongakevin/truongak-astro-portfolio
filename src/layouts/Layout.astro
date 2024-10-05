@@ -28,6 +28,15 @@ const currentPath = Astro.url.pathname;
 		<Nav currentPath={currentPath} />
 		<slot />
 		<script src="../scripts/pageTransitions.js"></script>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-V9BWSDY0JS"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-V9BWSDY0JS');
+		</script>
+		</script>
 	</body>
 </html>
 <style is:global>
@@ -41,7 +50,7 @@ const currentPath = Astro.url.pathname;
 	html {
 		font-family: Archivo;
 		font-weight: 700;
-		font-size: 50px;
+		font-size: 45px;
 		background: var(--secondary);
 	}
 	body { 
