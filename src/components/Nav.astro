@@ -14,7 +14,7 @@ return currentPath === path ? 'current' : '';
     <!-- <a class={isActive('/contact')} href="/contact">KONTAKT</a> -->
     <a class={isActive('/projects')} href="/projects">PROJEKTS</a>
     <a class={isActive('/art')} href="/art">ART</a>
-    <a href="https://open.spotify.com/user/kevinolis" target="_blank" rel="noopener noreferrer">MUSIK</a>
+    <a class={isActive('/music')} href="/music">MUSIK</a>
 </nav>
 
 <style>
@@ -52,7 +52,7 @@ return currentPath === path ? 'current' : '';
     }
 
     nav a:hover {
-        padding-right: 25px;
+        margin-right: 25px;
     }
 
     nav a.current {
@@ -62,7 +62,7 @@ return currentPath === path ? 'current' : '';
     }
 
     nav a.current:hover {
-        padding-right: 0;
+        margin-right: 0;
     }
     
 
@@ -85,5 +85,4 @@ return currentPath === path ? 'current' : '';
             padding: 10px 10px;
         }
     }
-    
 </style>
