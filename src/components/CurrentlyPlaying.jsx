@@ -49,7 +49,7 @@ const CurrentlyPlaying = () => {
   return (
     <div>
         <div className="currently-playing-container">
-        {currentlyPlaying.is_playing ? (
+        {currentlyPlaying ? (
           <>
             <div className="currently-playing-info">
               <div className="currently-playing-pic">
