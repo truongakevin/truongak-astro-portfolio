@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CurrentlyPlaying from '../components/CurrentlyPlaying';
 
 const response = await fetch('https://kevinatruong.com/api/spotify/data');
 const spotifyData = await response.json();
@@ -13,17 +14,9 @@ const spotifyData = await response.json();
 			</div>
 			<div class="profile-info">
 				<h1>{spotifyData.user_profile.display_name}</h1>
-				<h3>Currently playing</h3>
 				<div class="currently-playing">
-					{spotifyData.currently_playing ? (
-						<div class="currently-playing-pic">
-							<img src={spotifyData.currently_playing.track.album_image} alt={spotifyData.currently_playing.track.album} />
-						</div>
-						<div class="currently-playing-info">
-							<h4>{spotifyData.currently_playing.track.name}</h4>
-							<h5>{spotifyData.currently_playing.track.artists}</h5>
-						</div>
-					) : <p>Nothing Playing</p>}
+					<h3>Currently playing</h3>
+					<CurrentlyPlaying client:load/>
 				</div>
 			</div>
 		</div>
@@ -75,7 +68,7 @@ const spotifyData = await response.json();
 	main {
 		margin: 0;
 		margin-top: 150px;
-		font-size: .5em;
+		font-size: .4em;
 	}
 	h2 {
 		margin: 40px 20px 20px;
@@ -97,27 +90,12 @@ const spotifyData = await response.json();
 		margin: 10px;
 		margin-right: 0;
 	}
-	.profile-info h1,
-	.profile-info h3 {
-		margin: 10px 0;
+	.profile-info > * {
+		margin: 5px 0;
 	}
-	
-	.currently-playing {
-		display: flex;
-		flex-direction: row;
-		margin: 0px;
-	}
-	.currently-playing-pic img {
-		width: 75px;
-		height: 75px;
-	}
-	.currently-playing-info {
-		margin: auto 10px;
-	}
-	.currently-playing-info h4,
-	.currently-playing-info h5 {
-		margin: 0;
-		/* font-size: 12px; */
+	.currently-playing h3 {
+		margin: 5px 0;
+		margin-top: 10px;
 	}
 
 	/* artists section ============================ */
@@ -161,8 +139,7 @@ const spotifyData = await response.json();
 	.track-info {
 		margin: auto 10px;
 	}
-	.track-info h4,
-	.track-info h5 {
+	.track-info > * {
 		margin: 0;
 	}
 
@@ -194,11 +171,11 @@ const spotifyData = await response.json();
 		main {
 			margin: 0;
 		}
-		.profile {
-			margin: 10px;
-		}
 		h2 {
 			margin: 25px 10px 10px;
+		}
+		.profile {
+			margin: 10px;
 		}
 		.artist {
 			margin-left: 10px;
