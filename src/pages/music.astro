@@ -13,7 +13,9 @@ const spotifyData = await response.json();
 				<img src={spotifyData.user_profile.profile_image} alt="Profile Image" />
 			</div>
 			<div class="profile-info">
-				<h1>{spotifyData.user_profile.display_name}</h1>
+				<a href="https://open.spotify.com/user/kevinolis" target="_blank" rel="noopener noreferrer">
+					{spotifyData.user_profile.display_name}
+				</a>
 				<div class="currently-playing">
 					<h3>Currently playing</h3>
 					<CurrentlyPlaying client:load/>
@@ -89,6 +91,14 @@ const spotifyData = await response.json();
 	.profile-info {
 		margin: 10px;
 		margin-right: 0;
+	}
+	.profile-info a {
+		text-decoration: none;
+		margin: 0;
+		color: var(--primary);
+		font-size: 2.5em;
+	}
+	.profile-info a h1 {
 	}
 	.profile-info > * {
 		margin: 5px 0;

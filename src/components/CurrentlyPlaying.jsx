@@ -49,8 +49,7 @@ const CurrentlyPlaying = () => {
   return (
     <div>
         <div className="currently-playing-container">
-        {/* {currentlyPlaying.is_playing ? ( */}
-        {currentlyPlaying ? (
+        {currentlyPlaying.is_playing ? (
           <>
             <div className="currently-playing-info">
               <div className="currently-playing-pic">
@@ -62,14 +61,14 @@ const CurrentlyPlaying = () => {
               </div>
             </div>
             <div className='progress-container'>
-            <div className="progress-bar-container">
-              <div className="progress-bar"
-                style={{
-                  transition: `width ${fetchInterval / 1000}s linear`,
-                  width: `${progressPercentage}%`
-                }}
-              />
-            </div>
+              <div className="progress-bar-container">
+                <div className="progress-bar"
+                  style={{
+                    transition: `width ${fetchInterval / 1000}s linear`,
+                    width: `${progressPercentage}%`
+                  }}
+                />
+              </div>
               <div className="progress-time">
                 <h6>
                   {Math.floor(currentlyPlaying.track.progress_ms / 60000)}: {((currentlyPlaying.track.progress_ms % 60000) / 1000).toFixed(0).padStart(2, '0')}{' '}
@@ -95,13 +94,16 @@ const CurrentlyPlaying = () => {
             width: 100%;
             display: block;
           }
+          .currently-playing-container > * {
+            padding: 2px 0;
+          }
           .currently-playing-pic {
             // display: flex;
             margin: auto 0 0 0;
           }
           .currently-playing-pic img {
-            width: 80px;
-            height: 80px;
+            width: 75px;
+            height: 75px;
           }
           .currently-playing-info {
             margin: auto 0;
