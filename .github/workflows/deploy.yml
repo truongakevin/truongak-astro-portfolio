@@ -25,7 +25,7 @@ jobs:
       run: npm run build
 
     - name: Clean target directory
-      run: ssh -i path_to_private_key -p 222 username@${{ secrets.SERVER_IP }} "rm -rf /var/www/kevinatruong.com/html/*"
+      run: ssh -i ${{ secrets.SSH_PRIVATE_KEY }} -p 222  ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} "rm -rf /var/www/kevinatruong.com/html/*"
 
     - name: Copy files via SSH
       uses: appleboy/scp-action@v0.1.0
