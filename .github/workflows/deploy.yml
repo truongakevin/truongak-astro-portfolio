@@ -25,16 +25,16 @@ jobs:
       run: npm run build
 
     - name: Copy files to server
-        env:
+      env:
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
           SERVER_IP: ${{ secrets.SERVER_IP }}
           SERVER_PORT: ${{ secrets.SERVER_PORT }}
           SERVER_USER: ${{ secrets.SERVER_USER }}
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        run: |
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key
-          chmod 600 private_key
-          rsync -avz -e "ssh -i private_key -p $SERVER_PORT" --exclude='.git*' --exclude='node_modules' ./dist/ $SERVER_USER@$SERVER_IP:$DEPLOY_PATH
-          rm private_key
+      run: |
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key
+        chmod 600 private_key
+        rsync -avz -e "ssh -i private_key -p $SERVER_PORT" --exclude='.git*' --exclude='node_modules' ./dist/ $SERVER_USER@$SERVER_IP:$DEPLOY_PATH
+        rm private_key
 
 
