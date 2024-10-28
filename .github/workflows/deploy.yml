@@ -24,20 +24,14 @@ jobs:
     - name: Build Astro project
       run: npm run build
 
-    - name: Deploy to Server via SSH
-      uses: appleboy/ssh-action@v0.1.7
-      with:
-        host: ${{ secrets.SERVER_IP }}
-        username: ${{ secrets.SERVER_USER }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: |
-          # Create the deployment directory if it doesn't exist
-          mkdir -p ${{ secrets.DEPLOY_PATH }}
-          
-          # Remove old files
-          rm -rf ${{ secrets.DEPLOY_PATH }}/*
+    - name: Clean target directory
+      run: |
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > id_rsa
+        chmod 600 id_rsa
+        ssh -i id_rsa -o StrictHostKeyChecking=no -p 222 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "rm -rf /var/www/kevinatruong.com/html/*" -v
 
-          # Copy new build files
-          scp -r dist/* ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_PATH }}
+    - name: Deploy to Server
+      run: |
+        scp -i id_rsa -o StrictHostKeyChecking=no -P 222 -r dist/* ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/kevinatruong.com/html/
 
           
