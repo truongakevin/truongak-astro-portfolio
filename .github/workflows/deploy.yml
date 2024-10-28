@@ -24,17 +24,17 @@ jobs:
     - name: Build Astro project
       run: npm run build
 
-    - name: Copy files to server
+    - name: Deploy to server
       env:
-          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
-          SERVER_IP: ${{ secrets.SERVER_IP }}
-          SERVER_PORT: ${{ secrets.SERVER_PORT }}
-          SERVER_USER: ${{ secrets.SERVER_USER }}
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        SERVER_IP: ${{ secrets.SERVER_IP }}
+        SERVER_PORT: ${{ secrets.SERVER_PORT }}
+        SERVER_USER: ${{ secrets.SERVER_USER }}
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       run: |
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key
-        chmod 600 private_key
-        rsync -avz -e "ssh -i private_key -p $SERVER_PORT" --exclude='.git*' --exclude='node_modules' ./dist/ $SERVER_USER@$SERVER_IP:$DEPLOY_PATH
-        rm private_key
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > id_rsa
+        chmod 600 id_rsa
+        scp -P $SERVER_PORT -r dist/* $SERVER_USER@$SERVER_IP:$DEPLOY_PATH
+        rm id_rsa
 
 
