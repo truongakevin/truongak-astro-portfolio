@@ -23,13 +23,7 @@ jobs:
 
     - name: Build Astro project
       run: npm run build
-      
-    - name: List files in dist
-      run: ls -la dist
-    
-    - name: Clean target directory
-      run: ssh -i ${{ secrets.SSH_PRIVATE_KEY }} -p 222 ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} "rm -rf /var/www/kevinatruong.com/html/*"
-    
+
     - name: Copy files via SSH
       uses: appleboy/scp-action@v0.1.0
       with:
