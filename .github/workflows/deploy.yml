@@ -24,12 +24,12 @@ jobs:
     - name: Build Astro project
       run: npm run build
       
+    - name: List files in dist
+      run: ls -la dist
+    
     - name: Clean target directory
-      run: |
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > id_rsa
-        chmod 600 id_rsa
-        ssh -i id_rsa -o StrictHostKeyChecking=no -p 222 ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} "rm -rf /var/www/kevinatruong.com/html/*" -v
-
+      run: ssh -i ${{ secrets.SSH_PRIVATE_KEY }} -p 222 ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} "rm -rf /var/www/kevinatruong.com/html/*"
+    
     - name: Copy files via SSH
       uses: appleboy/scp-action@v0.1.0
       with:
@@ -37,6 +37,6 @@ jobs:
         username: ${{ secrets.SERVER_USER }}
         port: 222
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        source: "dist/*"
+        source: "dist/*"  # Adjust this if necessary
         target: "/var/www/kevinatruong.com/html/"
         debug: true
