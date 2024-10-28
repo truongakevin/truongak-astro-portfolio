@@ -38,5 +38,5 @@ jobs:
         port: 222
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         source: "dist/*"
-        target: "/var/www/kevinatruong.com/html"
+        target: "/var/www/kevinatruong.com/html/"
         debug: true
