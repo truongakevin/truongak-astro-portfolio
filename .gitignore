@@ -26,5 +26,7 @@ pnpm-debug.log*
 deploy.sh*
 
 # public/art/
-public/fonts/
+public/fonts/Archivo
+public/fonts/Rowdies
+# public/fonts/
 # public/info/
