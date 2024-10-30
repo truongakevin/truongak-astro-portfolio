@@ -18,26 +18,15 @@ return currentPath === path ? 'current' : '';
 </nav>
 
 <style>
-    
-    @keyframes navSlideIn {
-        0% {
-            width: 0%;
-            padding: 0;
-        }
-        50% {
-            width: 0%;
-        }
-        100% {
+    @media screen and (min-width: 768px){
+        nav {
             width: 30%;
+            position: fixed;
+            height: 100vh;
+            z-index: 1;
         }
     }
-    
-    .nav-slide-in {
-        animation: navSlideIn 1.5s ease-in-out forwards;
-    }
-    
     nav {
-        width: 30%;
         background-color: var(--primary);
         align-items: end;
         display: flex;
@@ -64,9 +53,28 @@ return currentPath === path ? 'current' : '';
     nav a.current:hover {
         margin-right: 0;
     }
-    
 
+    @keyframes navSlideIn {
+        0% {
+            width: 0%;
+            padding: 0;
+        }
+        50% {
+            width: 0%;
+        }
+        100% {
+            width: 30%;
+        }
+    }
+    
+    .nav-slide-in {
+        animation: navSlideIn 1.5s ease-in-out forwards;
+    }
+    
     @media screen and (max-width: 768px){
+        nav {
+            padding: 10px 10px;
+        }
         @keyframes navSlideIn {
             0% {
                 margin: -250px auto;
@@ -77,12 +85,6 @@ return currentPath === path ? 'current' : '';
             100% {
                 margin: 0;
             }
-        }
-        nav {
-            width: auto;
-            background-color: var(--primary);
-            align-items: end;
-            padding: 10px 10px;
         }
     }
 </style>
