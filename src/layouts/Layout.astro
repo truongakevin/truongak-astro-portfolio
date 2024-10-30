@@ -53,6 +53,9 @@ const currentPath = Astro.url.pathname;
 		font-size: 45px;
 		background: var(--secondary);
 	}
+	body::-webkit-scrollbar {
+		display: none;
+	}
 	body { 
 		margin: 0;
 		display: flex;
@@ -90,8 +93,8 @@ const currentPath = Astro.url.pathname;
 
 	main {
 		animation: slideDown 0.5s ease-in-out forwards;
-		padding: 20px;
-		padding-top: 150px;
+		margin: 20px;
+		margin-top: 150px;
 		flex: 1;
 		color: var(--primary);
 		background-color: var(--secondary);
@@ -129,8 +132,8 @@ const currentPath = Astro.url.pathname;
 			}
 		}
 		main {
-			padding: 10px;
-			padding-top: 10px;
+			margin: 10px;
+			margin-top: 10px;
 		}
 	}
 </style>
