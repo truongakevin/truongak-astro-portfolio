@@ -7,12 +7,12 @@ const artImages = getImages("info").map((img) => `/info/${img}`);
 
 <Layout title="info - kevinatruong">
 	<main>
-        <section class="photos">
+        <div class="photos">
             {artImages.map((image) => (
               <img src={image} alt="Art" />
             ))}
-        </section>
-        <section class="information">
+        </div>
+        <div class="information">
             <!-- <br> -->
             <p>born in 2001</p>
             <!-- <br> -->
@@ -25,7 +25,7 @@ const artImages = getImages("info").map((img) => `/info/${img}`);
             <p>makes digital art, paintings, and drawings</p>
             <!-- <br> -->
             <p><a id="contact" href="/contact">email me</a></p>
-        </section>
+        </div>
 	</main>
 </Layout>
 

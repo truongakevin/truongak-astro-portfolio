@@ -8,11 +8,11 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="art - kevinatruong">
     <main>
-        <section class="art-gallery">
+        <div class="art-gallery">
             {artImages.map((image) => (
               <img src={image} alt="Art" />
             ))}
-        </section>
+        </div>
     </main>
 </Layout>
 
