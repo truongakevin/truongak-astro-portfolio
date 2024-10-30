@@ -24,6 +24,7 @@ const artImages = getImages("info").map((img) => `/info/${img}`);
             <!-- <br> -->
             <p>makes digital art, paintings, and drawings</p>
             <!-- <br> -->
+            <a id="contact" href="/contact"><p>contact me</p></a>
         </section>
 	</main>
 </Layout>
@@ -31,10 +32,17 @@ const artImages = getImages("info").map((img) => `/info/${img}`);
 <style>
 	main {
         font-size: 24px;
-        font-weight: 550;
+        font-weight: 450;
 	}
     .photos img {
         padding-right: 10px;
-        width: 33%;
+        width: 25%;
+    }
+    P {
+        margin: 20px 0;
+    }
+    a {
+        /* text-decoration: none; */
+        color: var(--primary);
     }
 </style>
