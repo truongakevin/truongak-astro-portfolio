@@ -9,7 +9,7 @@ const artImages = getImages("info").map((img) => `/info/${img}`);
 	<main>
         <div class="photos">
             {artImages.map((image) => (
-              <img src={image} alt="Art" />
+              <img src={image} alt="me" />
             ))}
         </div>
         <div class="information">
@@ -36,7 +36,13 @@ const artImages = getImages("info").map((img) => `/info/${img}`);
 	}
     .photos img {
         padding-right: 10px;
-        width: 33%;
+        width: 35%;
+    }
+    @media screen and (max-width: 768px){
+        .photos img {
+            padding-right: 10px;
+            width: 45%;
+        }
     }
     P {
         margin: 20px 0;
