@@ -6,13 +6,126 @@ async function fetchVoices() {
 		const voices = await response.json();
 		const voiceSelect = document.getElementById('voice_id');
 
+		// Mapping of original voice names to custom names
+		const customNames = {
+			"Akari" : "Japanese Girl",
+			"Alpha" : "",
+			"Anita" : "Hindi Women",
+			"Atlas" : "Default Man",
+			"Aurora" : "",
+			"Axel" : "",
+			"Barter" : "",
+			"Beep" : "",
+			"Bella" : "Isabelle Villager",
+			"Blitz" : "",
+			"Breaker" : "",
+			"Breeze" : "ASMR",
+			"Bulk" : "",
+			"Buzz" : "Watchmojo Lady",
+			"Byte" : "",
+			"Chef" : "Gordan Ramsey",
+			"Circuit" : "Linus Tech Tips",
+			"Commander" : "",
+			"Czar" : "Russian Man",
+			"Dash" : "Sonic",
+			"Debater" : "Ben Shapiro",
+			"Diplomat" : "Joe Biden",
+			"Elder" : "Morgan Freeman",
+			"Epic  Narrator": "", 
+			"Explorer" : "Narrator",
+			"Forge" : "",
+			"Frogman" : "Kermit",
+			"Frost" : "Chills",
+			"Gemma" : "Megan",
+			"Gravel" : "Penguinz0",
+			"Herald" : "",
+			"Hunter" : "",
+			"Inferno" : "",
+			"Ironclad" : "",
+			"Kawaii" : "Weeb Girl",
+			"Leader" : "Obama",
+			"Mentor" : "",
+			"Merlin" : "French Man",
+			"Micro" : "Plankton",
+			"Nova" : "Default Man",
+			"Oracle" : "GladOs",
+			"Outlaw" : "Kkona",
+			"Pablo" : "",
+			"Phantom" : "",
+			"Pinnacle" : "",
+			"Pulse" : "Zoomer",
+			"Quill" : "",
+			"Reasonable" : "",
+			"Scout" : "Bart",
+			"Sentient" : "Become Human: Connor",
+			"Sentinel" : "",
+			"Shade" : "",
+			"Singer" : "",
+			"Specter" : "",
+			"Spectral" : "",
+			"Spongey" : "Spongebob Squarepants",
+			"Star" : "Patrick Star",
+			"Stella" : "",
+			"Tentacle" : "Squidward",
+			"Titan" : "",
+			"Titanus" : "",
+			"Tycoon" : "Trump",
+			"Vera" : "",
+			"Verdant" : "",
+			"Vice" : "Patrick Batemen",
+			"Wanderer" : "",
+			"Warden" : "",
+			"Whisper" : "",
+			"Wretch" : "",
+			"Yuki" : "Japanese Women",
+		}
+		const Unknown = {
+			"Alpha" : "",
+			"Aurora" : "",
+			"Axel" : "",
+			"Barter" : "",
+			"Beep" : "",
+			"Blitz" : "",
+			"Breaker" : "",
+			"Bulk" : "",
+			"Byte" : "",
+			"Commander" : "",
+			"Epic  Narrator": "",
+			"Forge" : "",
+			"Herald" : "",
+			"Hunter" : "",
+			"Inferno" : "",
+			"Ironclad" : "",
+			"Mentor" : "",
+			"Pablo" : "",
+			"Phantom" : "",
+			"Pinnacle" : "",
+			"Quill" : "",
+			"Reasonable" : "",
+			"Sentinel" : "",
+			"Shade" : "",
+			"Singer" : "",
+			"Specter" : "",
+			"Spectral" : "",
+			"Stella" : "",
+			"Titan" : "",
+			"Titanus" : "",
+			"Vera" : "",
+			"Verdant" : "",
+			"Wanderer" : "",
+			"Warden" : "",
+			"Whisper" : "",
+			"Wretch" : "",
+		}
 		voices.forEach(voice => {
-			const option = document.createElement('option');
-			option.value = voice.voice_id; // Use voice_id for the form
-			option.textContent = voice.name; // Display the name of the voice
-			option.dataset.sample = voice.sample; 
+			if (customNames[voice.name]) {
+				const option = document.createElement('option');
+				option.value = voice.voice_id;
+				option.textContent = customNames[voice.name];
+				option.dataset.sample = voice.sample; 
 
-			voiceSelect.appendChild(option);
+				voiceSelect.appendChild(option);
+			}
 		});
 	} catch (error) {
 		console.error('Error fetching voices:', error);
