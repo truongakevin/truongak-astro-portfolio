@@ -37,6 +37,9 @@ return currentPath === path ? 'current' : '';
     }
     
     nav {
+        z-index: 10;
+        position: fixed;
+        height: 100%;
         width: 30%;
         background-color: var(--primary);
         align-items: end;
@@ -52,7 +55,7 @@ return currentPath === path ? 'current' : '';
     }
 
     nav a:hover {
-        margin-right: 25px;
+        padding-right: 25px;
     }
 
     nav a.current {
@@ -79,7 +82,18 @@ return currentPath === path ? 'current' : '';
             }
         }
         nav {
-            width: auto;
+            z-index: -1;
+            position: fixed;
+            height: 100%;
+            width: 30%;
+            background-color: var(--primary);
+            align-items: end;
+            display: flex;
+            flex-direction: column;
+            padding: 100px 20px 0;
+        }
+        nav {
+            width: 100%;
             background-color: var(--primary);
             align-items: end;
             padding: 10px 10px;

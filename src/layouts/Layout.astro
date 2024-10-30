@@ -26,17 +26,14 @@ const currentPath = Astro.url.pathname;
 	</head>
 	<body>
 		<Nav currentPath={currentPath} />
-		<slot />
+		<div class="content">
+			<slot />
+		</div>
+
 		<script src="../scripts/pageTransitions.js"></script>
 		<!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-V9BWSDY0JS"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-			gtag('config', 'G-V9BWSDY0JS');
-		</script>
-		</script>
+		<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-V9BWSDY0JS');</script></script>
 	</body>
 </html>
 <style is:global>
@@ -62,35 +59,6 @@ const currentPath = Astro.url.pathname;
 		min-height: 100vh
 	}
 
-	@keyframes slideUp {
-		0% {
-			transform: translateY(0);
-			opacity: 1;
-		}
-		100% {
-			transform: translateY(-100%);
-			opacity: 0;
-		}
-    }
-	@keyframes slideDown {
-		0% {
-			transform: translateY(100%);
-			opacity: 0;
-		}
-		100% {
-			transform: translateY(0);
-			opacity: 1;
-		}
-	}
-	
-	.slide-up {
-		animation: slideUp 0.5s forwards;
-	}
-
-	.slide-down {
-		animation: slideDown 0.5s forwards;
-	}
-
 	main {
 		animation: slideDown 0.5s ease-in-out forwards;
 		margin: 20px;
@@ -99,6 +67,11 @@ const currentPath = Astro.url.pathname;
 		color: var(--primary);
 		background-color: var(--secondary);
 		align-items: start;
+	}
+
+	.content {
+		margin-left: 33%;
+		width: 100%;
 	}
 
 	@media screen and (max-width: 768px){
@@ -131,9 +104,43 @@ const currentPath = Astro.url.pathname;
 				opacity: 1;
 			}
 		}
+		.content {
+			margin-left: 0;
+			margin-bottom: 100px;
+			width: 100%;
+		}
 		main {
 			margin: 10px;
 			margin-top: 10px;
 		}
+	}
+
+	@keyframes slideUp {
+		0% {
+			transform: translateY(0);
+			opacity: 1;
+		}
+		100% {
+			transform: translateY(-100%);
+			opacity: 0;
+		}
+    }
+	@keyframes slideDown {
+		0% {
+			transform: translateY(100%);
+			opacity: 0;
+		}
+		100% {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+	
+	.slide-up {
+		animation: slideUp 0.5s forwards;
+	}
+
+	.slide-down {
+		animation: slideDown 0.5s forwards;
 	}
 </style>
