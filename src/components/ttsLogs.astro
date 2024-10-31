@@ -1,0 +1,80 @@
+---
+// This file is the TTS Logs component
+const { logs } = Astro.props;
+
+// Function to group logs by date
+const groupLogsByDate = (logs) => {
+    return logs.reduce((acc, log) => {
+        const date = log.timestamp.split(' ')[0];
+        if (!acc[date]) {
+            acc[date] = [];
+        }
+        acc[date].push(log);
+        return acc;
+    }, {});
+};
+
+const groupedLogs = groupLogsByDate(logs);
+---
+
+<div id="logs-container">
+    {Object.entries(groupedLogs).map(([date, entries]) => (
+        <div key={date}>
+            <h3 class="log-day">{date}</h3>
+            <ul class="logs-list">
+                {entries.map(log => {
+                    const logTime = log.timestamp.split(' ')[1] + ' ' + log.timestamp.split(' ')[2].toLowerCase();
+                    return (
+                        <li class="log-item" key={log.timestamp}>
+                            <div class="log-entry">
+                                <span class="log-voice">{log.voice_name}:</span>
+                                <span class="log-message">{log.message}</span>
+                            </div>
+                            <span class="log-time">{logTime}</span>
+                        </li>
+                    );
+                })}
+            </ul>
+        </div>
+    ))}
+</div>
+
+<style>
+    .logs-list {
+        list-style-type: none; /* Remove bullets */
+        padding: 0;
+        margin: 0;
+    }
+
+    .log-day {
+        margin-bottom: 10px;
+    }
+
+    .log-item {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 550;
+        padding: 5px 0;
+        font-size: .9em;
+    }
+
+    .log-entry {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .log-voice {
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .log-message {
+        font-weight: 400;
+    }
+
+    .log-time {
+        align-self: start;
+        white-space: nowrap;
+        margin-left: 50px;
+    }
+</style>
