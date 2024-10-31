@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TTSLogs from '../../components/ttsLogs.astro';
+
+let logs = [];
+
+// Function to fetch logs
+async function fetchLogs() {
+    const response = await fetch("https://kevinatruong.com/api/tts/logs");
+    logs = await response.json();
+    logs.reverse();
+}
+await fetchLogs();
+---
+<Layout title="tts - kevinatruong">
+	<main>
+        <h2>TTS Logs</h2>
+        <TTSLogs logs={logs} />
+	</main>
+</Layout>
+
+<style>
+	main {
+		font-size: 0.60em;
+	}
+	h2 {
+		margin: 20px 0;
+	}
+</style>

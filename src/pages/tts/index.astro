@@ -1,10 +1,10 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro';
 ---
 
 <Layout title="tts - kevinatruong">
 	<main>
-		<h2 id="title">SEND TTS</h2>
+		<h2 id="title">SEND T<a href="/tts/logs">T</a>S</h2>
 		<form id="ttsForm" autocomplete="off">
 			<label for="message">MESSAGE</label><br>
 			<textarea id="message" name="message" maxlength="64" required></textarea><br>
@@ -33,6 +33,10 @@ import Layout from '../layouts/Layout.astro';
 	}
 	h2 {
 		margin: 20px 0;
+	}
+	a {
+		text-decoration: none;
+		color: var(--primary);
 	}
 	input, textarea, button, select {
 		background-color: var(--primary);
