@@ -13,17 +13,12 @@ const artImages = getImages("info").map((img) => `/info/${img}`);
             ))}
         </div>
         <div class="information">
-            <!-- <br> -->
             <p>born in 2001</p>
-            <!-- <br> -->
-            <p>software engineer from colorado</p>
-            <!-- <br> -->
+            <p></p>
+            <p>software engineer from colorado | <a id="cv" href="/info/resume.pdf">cv</a></p>
             <p>develops software and apps</p>
-            <!-- <br> -->
             <p>specializes in web development and machine learning</p>
-            <!-- <br> -->
             <p>makes digital art, paintings, and drawings</p>
-            <!-- <br> -->
             <p><a id="contact" href="/contact">email me</a></p>
         </div>
 	</main>
@@ -36,7 +31,7 @@ const artImages = getImages("info").map((img) => `/info/${img}`);
 	}
     .photos img {
         padding-right: 10px;
-        width: 35%;
+        width: 30%;
     }
     @media screen and (max-width: 768px){
         .photos img {
