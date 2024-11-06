@@ -17,25 +17,28 @@ const spotifyData = await response.json();
 					{spotifyData.user_profile.display_name}
 				</a>
 				<div class="currently-playing">
-					<h3>Currently playing</h3>
+					<!-- <h3>currently playing</h3> -->
+					<h3>CURRENTLY PLAYING</h3>
 					<CurrentlyPlaying client:load/>
 				</div>
 			</div>
 		</div>
 
-		<h2>top artists this month</h2>
+		<!-- <h2>top artists this month</h2> -->
+		<h2>TOP ARTISTS THIS MONTH</h2>
 		<div class="artists-container">
 			<div class="artists">
 				{spotifyData.top_artists.map((artist) => (
 					<div class="artist">
 						<img src={artist.images} alt={artist.name} />
-						<p>{artist.name}</p>
+						<h4>{artist.name}</h4>
 					</div>
 				))}
 			</div>
 		</div>
 		
-		<h2>top tracks this month</h2>
+		<!-- <h2>top tracks this month</h2> -->
+		<h2>TOP TRACKS THIS MONTH</h2>
 		<div class="tracks">
 			{spotifyData.top_tracks.map((track) => (
 				<div class="track">
@@ -43,20 +46,21 @@ const spotifyData = await response.json();
 						<img src={track.album_image} alt={track.album} />
 					</div>
 					<div class="track-info">
-						<h4>{track.name}</h4>
-						<h5>{track.artists}</h5>
+						<h3>{track.name}</h3>
+						<h4>{track.artists}</h4>
 					</div>
 				</div>
 			))}
 		</div>
 
-		<h2>my playlists</h2>
+		<!-- <h2>my playlists</h2> -->
+		<h2>PLAYLISTS</h2>
 		<div class="playlists-container">
 			<div class="playlists">
 				{spotifyData.user_playlists.map((playlist) => (
 					<div class="playlist">
 						<img src={playlist.images} alt={playlist.name} />
-						<p>{playlist.name}</p>
+						<h3>{playlist.name}</h3>
 					</div>
 				))}
 			</div>
@@ -86,7 +90,6 @@ const spotifyData = await response.json();
 	.profile-pic img {
 		width: 200px;
 		height: 200px;
-		object-fit: cover;
 	}
 	.profile-info {
 		margin: 10px;
@@ -129,8 +132,8 @@ const spotifyData = await response.json();
 		height: 200px;
 		border-radius: 100px;
 	}
-	.artist p {
-		margin: 0;
+	.artist > * {
+		margin: 2px;
 	}
 	
 	/* tracks div ============================ */
@@ -173,8 +176,7 @@ const spotifyData = await response.json();
 		width: 100%;
 		height: 250px;
 	}
-	.playlist p {
-		/* font-size: 20px; */
+	.playlist > * {
 		margin: 0;
 	}
 	@media screen and (max-width: 768px) {
@@ -186,6 +188,10 @@ const spotifyData = await response.json();
 		}
 		.profile {
 			margin: 10px;
+		}
+		.profile-pic img {
+			width: 150px;
+			height: 175px;
 		}
 		.artist {
 			margin-left: 10px;
