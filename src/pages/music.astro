@@ -32,6 +32,12 @@ const spotifyData = await response.json();
 		object-fit: cover;
 	}
 	/* profile div ============================ */
+	@media screen and (max-width: 768px) {
+		.profile {
+			justify-content: center;
+			text-align: center;
+		}
+	}
 	.profile {
 		display: flex;
 		margin: 20px;
@@ -41,23 +47,80 @@ const spotifyData = await response.json();
 		height: 200px;
 	}
 	.profile-info {
+		text-align: left;
 		margin: 10px;
 		margin-right: 0;
+		width: 50%;
 	}
 	.profile-info a {
-		text-decoration: none;
-		margin: 0;
 		color: var(--primary);
+		text-decoration: none;
 		font-size: 2.5em;
+		margin: 0;
 	}
 	.profile-info a h1 {
 	}
 	.profile-info > * {
 		margin: 5px 0;
 	}
+	
+	/* currently playing div ============================ */
 	.currently-playing h3 {
 		margin: 5px 0;
 		margin-top: 10px;
+	}
+	.currently-playing-container {
+		margin: auto 0;
+		display: block;
+	}
+	.currently-playing-container > * {
+		padding: 0;
+	}
+	.currently-playing-pic {
+		margin: auto 0 0 0;
+	}
+	.currently-playing-pic img {
+		width: 75px;
+		height: 75px;
+	}
+	.currently-playing-info {
+		margin: auto 0;
+		display: flex;
+	}
+	.currently-playing-song {
+		margin: auto 10px auto 0;
+		margin-left: 10px;
+	}
+	.currently-playing-song > * {
+		margin:	0;
+	}
+	.progress-container {
+		margin: 0px 0;
+	}
+	.progress-bar-container {
+		display: block;
+		width: 100%;
+		height: 10px;
+		background-color: #ddd;
+		border-radius: 5px;
+		position: relative;
+		overflow: hidden;
+	}
+	.progress-bar {
+		height: 100%;
+		background-color: #111111;
+	}
+	.progress-time h6 {
+		margin: 0;
+	}
+	@media screen and (max-width: 768px) {
+		.currently-playing-container {
+			min-width: 175px;
+		}
+		.currently-playing-pic img {
+			width: 50px;
+			height: 50px;
+		}
 	}
 
 	/* artists div ============================ */
