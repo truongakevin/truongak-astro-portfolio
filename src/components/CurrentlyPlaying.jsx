@@ -14,9 +14,8 @@ const CurrentlyPlaying = () => {
       if (!response.ok) throw new Error('Failed to fetch Spotify data');
       const data = await response.json();
       setSpotifyData(data);
-      console.log(fetchInterval);
-      const newInterval = Math.floor(Math.random() * 5 + 1) * 1000; // Random interval in milliseconds
-      setFetchInterval(newInterval); // Update the fetch interval state
+      const newInterval = Math.floor(Math.random() * 5 + 1) * 1000;
+      setFetchInterval(newInterval);
     } catch (err) {
       setError(err.message); // Handle error
       console.error(err);
@@ -29,7 +28,7 @@ const CurrentlyPlaying = () => {
   useEffect(() => {
     const intervalId = setInterval(fetchData, fetchInterval);
     return () => clearInterval(intervalId);
-  }, [fetchInterval]); // Depend on fetchInterval so it updates when it changes
+  }, [fetchInterval]);
 
   if (loading) {
     return <div>Loading...</div>; // Display something while loading
