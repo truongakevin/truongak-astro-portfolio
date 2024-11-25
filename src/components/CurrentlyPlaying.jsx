@@ -41,9 +41,7 @@ const CurrentlyPlaying = () => {
   const currentlyPlaying = spotifyData.currently_playing;
 
   // Calculate progress percentage for the progress bar
-  const progressPercentage = currentlyPlaying
-    ? (currentlyPlaying.track.progress_ms / currentlyPlaying.track.duration_ms) * 100
-    : 0;
+  const progressPercentage = currentlyPlaying ? (currentlyPlaying.track.progress_ms / currentlyPlaying.track.duration_ms) * 100 : 0;
 
   return (
     <div>
