@@ -66,7 +66,7 @@ const TimerDisplay = () => {
         <p style={{ margin: "20px 0px" }}>
             {hours}h {minutes}m {seconds}s
         </p>
-        <button style={buttonStyle} onClick={handleResetTimer}>Reset Timer</button>
+        {/* <button style={buttonStyle} onClick={handleResetTimer}>Reset Timer</button> */}
     </div>
   );
 };
