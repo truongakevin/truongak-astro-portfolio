@@ -4,11 +4,15 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="home - kevinatruong">
 	<main>
-		<p>HELLO.<br> WELCOME TO MY WEBSITE</p>
+		<p>HELLO.<br> WELCOME TO <a href="/meds">M</a>Y WEBSITE</p>
 	</main>
 </Layout>
 
 <style>
+	a {
+		color: var(--primary);
+		text-decoration: none;
+	}
 	@media screen and (min-width: 768px){
 		p {
 			margin: 150px 0;
