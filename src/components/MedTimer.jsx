@@ -8,7 +8,7 @@ const TimerDisplay = () => {
   useEffect(() => {
     const fetchTimeSinceLastMeds = async () => {
       try {
-        const response = await fetch('https:/kevinatruong.com/esp/med_time');
+        const response = await fetch('https://kevinatruong.com/esp/med_time');
         if (!response.ok) {
           throw new Error('Failed to fetch timer data');
         }
@@ -30,7 +30,7 @@ const TimerDisplay = () => {
 
   const handleResetTimer = async () => {
     try {
-      const response = await fetch('https:/kevinatruong.com/esp/reset_timer', { method: 'POST' });
+      const response = await fetch('https://kevinatruong.com/esp/reset_timer', { method: 'POST' });
       if (!response.ok) {
         throw new Error('Failed to reset timer');
       }
