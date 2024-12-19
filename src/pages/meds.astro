@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TimerDisplay from '../components/MedTimer.jsx';
+---
+
+<Layout title="meds - kevinatruong">
+	<main>
+        <h3>Time Since Medication Last Take</h3>
+        <TimerDisplay client:load/>
+	</main>
+</Layout>
+
+<style>
+    h3 {
+        margin: 50px 0px 25px;
+    }
+	@media screen and (max-width: 768px){
+        main {
+            text-align: center;
+        }
+	}
+</style>
