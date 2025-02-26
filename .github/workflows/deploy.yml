@@ -28,7 +28,7 @@ jobs:
       run: |
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > id_rsa
         chmod 600 id_rsa
-        ssh -i id_rsa -o StrictHostKeyChecking=no -p 222 ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} "rm -rf /var/www/kevinatruong.com/html/*" -v
+        ssh -i id_rsa -o StrictHostKeyChecking=no -p ${{ secrets.SERVER_PORT }} ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} "rm -rf /var/www/kevinatruong.com/html/*" -v
         
     - name: Copy files via SCP
       run: |
