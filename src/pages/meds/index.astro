@@ -1,18 +1,18 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import TimerDisplay from '../components/MedTimer.jsx';
+import Layout from '../../layouts/Layout.astro';
+import MedTimerDisplay from '../../components/MedTimer.jsx';
 ---
 
 <Layout title="meds - kevinatruong">
 	<main>
         <h4>TIME SINCE KEVIN TOOK HIS MEDICATION</h4>
-        <TimerDisplay client:load/>
+        <MedTimerDisplay client:load/>
 	</main>
 </Layout>
 
 <style>
     h4 {
-        margin: 50px 0px 25px;
+        margin: 50px 0px 20px;
     }
 	@media screen and (max-width: 768px){
         main {
