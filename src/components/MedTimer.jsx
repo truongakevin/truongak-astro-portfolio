@@ -8,12 +8,12 @@ const TimerDisplay = () => {
   useEffect(() => {
     const fetchTimeSinceLastMeds = async () => {
       try {
-        const response = await fetch('https://kevinatruong.com/esp/med_time');
+        const response = await fetch('https://kevinatruong.com/api/med/check');
         if (!response.ok) {
           throw new Error('Failed to fetch timer data');
         }
         const data = await response.json();
-        setTimeSinceLastMeds(data.timeSinceMeds);
+        setTimeSinceLastMeds(data.elapsed_time);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -30,12 +30,10 @@ const TimerDisplay = () => {
 
   const handleResetTimer = async () => {
     try {
-      const response = await fetch('https://kevinatruong.com/esp/reset_timer', { method: 'POST' });
+      const response = await fetch('https://kevinatruong.com/api/med/reset', { method: 'POST' });
       if (!response.ok) {
         throw new Error('Failed to reset timer');
       }
-      const data = await response.json();
-      console.log(data.status); // Display reset success message
     } catch (err) {
       console.log('Error: ' + err.message);
     }
@@ -45,9 +43,10 @@ const TimerDisplay = () => {
   if (error) return <div>Error: {error}</div>;
 
   // Calculate hours, minutes, and seconds from time elapsed (in milliseconds)
-  const hours = Math.floor(timeSinceLastMeds / (60 * 60 * 1000));
-  const minutes = Math.floor((timeSinceLastMeds % (60 * 60 * 1000)) / (60 * 1000));
-  const seconds = Math.floor((timeSinceLastMeds % (60 * 1000)) / 1000);
+  const days = Math.floor(timeSinceLastMeds / (24 * 3600)); // 1 day = 86400 seconds
+  const hours = Math.floor((timeSinceLastMeds % (24 * 3600)) / 3600);
+  const minutes = Math.floor((timeSinceLastMeds % 3600) / 60);
+  const seconds = timeSinceLastMeds % 60;
 
   const buttonStyle = {
     backgroundColor: 'var(--primary)', 
@@ -64,9 +63,9 @@ const TimerDisplay = () => {
   return (
     <div>
         <p style={{ margin: "20px 0px" }}>
-            {hours}h {minutes}m {seconds}s
+            {days}d {hours}h {minutes}m {seconds}s
         </p>
-        {/* <button style={buttonStyle} onClick={handleResetTimer}>Reset Timer</button> */}
+        <button style={buttonStyle} onClick={handleResetTimer}>Reset Timer</button>
     </div>
   );
 };
