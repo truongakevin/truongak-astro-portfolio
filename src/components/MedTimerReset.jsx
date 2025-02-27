@@ -47,7 +47,7 @@ const MedResetButton = ({ medName, minWaitTime }) => {
   const buttonStyle = {
     width: "60%",
     height: "1.75em",
-    fontSize: ".75em",
+    fontSize: "1em",
     marginTop: "5px",
     marginBottom: "20px",
     border: "0px solid var(--primary)",
