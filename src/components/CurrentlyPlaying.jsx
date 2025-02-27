@@ -31,11 +31,11 @@ const CurrentlyPlaying = () => {
   }, [fetchInterval]);
 
   if (loading) {
-    return <div>Loading...</div>; // Display something while loading
+    return <p>Loading...</p>; // Display something while loading
   }
 
   if (error) {
-    return <div>Error: {error}</div>; // Display error if it occurs
+    return <p>Error: {error}</p>; // Display error if it occurs
   }
 
   const currentlyPlaying = spotifyData.currently_playing;
