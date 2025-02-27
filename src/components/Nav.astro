@@ -9,12 +9,12 @@ return currentPath === path ? 'current' : '';
 
 <nav>
     <!-- <nav class={currentPath === ('/') ? 'nav-slide-in' : ''}> -->
-    <a class={isActive('/')} href="/">KEVINATRUONG</a>
-    <a class={isActive('/info')} href="/info">INFO</a>
-    <a class={isActive('/contact')} href="/contact">KONTAKT</a>
-    <a class={isActive('/projects')} href="/projects">PROJEKTS</a>
-    <a class={isActive('/art')} href="/art">ART</a>
-    <a class={isActive('/music')} href="/music">MUSIK</a>
+    <h1><a class={isActive('/')} href="/">KEVINATRUONG</a></h1>
+    <h1><a class={isActive('/info')} href="/info">INFO</a></h1>
+    <h1><a class={isActive('/contact')} href="/contact">KONTAKT</a></h1>
+    <h1><a class={isActive('/projects')} href="/projects">PROJEKTS</a></h1>
+    <h1><a class={isActive('/art')} href="/art">ART</a></h1>
+    <h1><a class={isActive('/music')} href="/music">MUSIK</a></h1>
 </nav>
 
 <style>
@@ -25,6 +25,9 @@ return currentPath === path ? 'current' : '';
             height: 100vh;
             z-index: 1;
         }
+    }
+    h1 {
+        margin: 0px;
     }
     nav {
         background-color: var(--primary);

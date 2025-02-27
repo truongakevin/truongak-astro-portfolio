@@ -4,8 +4,8 @@ import Layout from '../../layouts/Layout.astro';
 
 <Layout title="tts - kevinatruong">
 	<main>
-		<h2 id="title">SEND T<a href="/tts/logs">T</a>S</h2>
-		<h5>TTS MESSAGE WILL BE SENT TO KEVIN'S ROOM SPEAKER</h5>
+		<h1 id="title">SEND T<a href="/tts/logs">T</a>S</h1>
+		<h4>TTS MESSAGE WILL BE SENT TO KEVIN'S ROOM SPEAKER</h4>
 		<form id="ttsForm" autocomplete="off">
 			<label for="message">MESSAGE</label><br>
 			<textarea id="message" name="message" maxlength="64" required></textarea><br>
@@ -29,13 +29,10 @@ import Layout from '../../layouts/Layout.astro';
 </Layout>
 
 <style>
-	main {
-		font-size: .60em;
-	}
-	h2 {
+	h1 {
 		margin: 20px 0;
 	}
-	h5 {
+	h4 {
 		margin: -15px 0px 20px;
 	}
 	a {
@@ -74,7 +71,7 @@ import Layout from '../../layouts/Layout.astro';
     }
     .voices button{
         align-self: center;
-        font-size: .7em;
+        font-size: .75em;
         width: 8em;
     }
 

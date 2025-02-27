@@ -52,7 +52,7 @@ const currentPath = Astro.url.pathname;
 	html {
 		font-family: Archivo;
 		font-weight: 700;
-		font-size: 40px;
+		font-size: 2em;
 		background: var(--secondary);
 	}
 	body::-webkit-scrollbar {
@@ -71,6 +71,7 @@ const currentPath = Astro.url.pathname;
 		}
 	}
 	main {
+		font-size: .75em;
 		animation: slideDown 0.5s ease-in-out forwards;
 		margin: 20px;
 		margin-top: 100px;
@@ -82,7 +83,7 @@ const currentPath = Astro.url.pathname;
 
 	@media screen and (max-width: 768px){
 		html {
-			font-size: 36px;
+			font-size: 1.75em;
 		}
 		body {
 			display: block;

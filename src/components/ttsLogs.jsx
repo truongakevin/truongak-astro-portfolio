@@ -39,7 +39,7 @@ const TTSLogs = () => {
         <div id="logs-container">
             {Object.entries(groupedLogs).map(([date, entries]) => (
                 <div key={date}>
-                    <h3 style={{ marginBottom: '10px' }}>{date}</h3>
+                    <h3 style={{ marginBottom: '0px' }}>{date}</h3>
                     <ul style={{ listStyleType: 'none', padding: 0, margin: 0 }}>
                         {entries.map(log => {
                             const logTime = log.timestamp.split(' ')[1] + ' ' + log.timestamp.split(' ')[2].toLowerCase();
