@@ -1,0 +1,40 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import MedTimerDisplay from '../../components/MedTimer.jsx';
+import MedResetButton from '../../components/MedTimerReset.jsx';
+
+const medicationName1 = "sleep";
+const medicationName2 = "happy";
+---
+
+<Layout title="des meds - kevinatruong">
+	<main>
+        <h1 id="title">TIME SINCE DESIREE TOOK HER MEDICATION</h1>
+
+        <div class="timers">
+            <h2>SLEEPY MEDS</h2>
+            <MedTimerDisplay client:load medName={medicationName1} />
+            <MedResetButton client:load medName={medicationName1} minWaitTime={(4)*60*60} />
+            
+            <h2>HAPPY MEDS</h2>
+            <MedTimerDisplay client:load medName={medicationName2} />
+            <MedResetButton client:load medName={medicationName2} minWaitTime={(12)*60*60} />
+        </div>
+
+	</main>
+</Layout>
+
+<style is:inline>
+    #title {
+        margin: 50px 0px 25px;
+    }
+    h2 {
+        color: var(--background);
+        margin: 0px;
+    }
+	@media screen and (max-width: 768px){
+        main {
+            text-align: center;
+        }
+	}
+</style>
