@@ -40,7 +40,7 @@ const MedTimerDisplay = ({ medName }) => {
   return (
     <div>
         <p style={{ margin: "0px 0px" }}>
-            {days}d {hours}h {minutes}m {seconds}s
+            {days}D {hours}H {minutes}M {seconds}S
         </p>
     </div>
   );
