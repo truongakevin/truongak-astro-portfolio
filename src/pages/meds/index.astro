@@ -1,12 +1,14 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import MedTimerDisplay from '../../components/MedTimer.jsx';
+
+const medicationName = "bupropion";
 ---
 
 <Layout title="meds - kevinatruong">
 	<main>
         <h4>TIME SINCE KEVIN TOOK HIS MEDICATION</h4>
-        <MedTimerDisplay client:load/>
+        <MedTimerDisplay client:load medName={medicationName} />
 	</main>
 </Layout>
 

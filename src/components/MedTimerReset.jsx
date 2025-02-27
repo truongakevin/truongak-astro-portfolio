@@ -1,14 +1,10 @@
 import { useState } from "react";
 
-const MedResetButton = () => {
-  const [isClicked, setIsClicked] = useState(false);
+const MedResetButton = ({ medName }) => {
 
   const handleResetTimer = async () => {
     try {
-      setIsClicked(true); // Change color when clicked
-      setTimeout(() => setIsClicked(false), 300); // Reset color after 300ms
-
-      const response = await fetch('https://kevinatruong.com/api/med/reset', { method: 'POST' });
+      const response = await fetch(`https://kevinatruong.com/api/med/reset/${medName}`, { method: "POST" });
       if (!response.ok) {
         throw new Error('Failed to reset timer');
       }

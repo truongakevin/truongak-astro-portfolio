@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const MedTimerDisplay = () => {
+const MedTimerDisplay = ({ medName }) => {
   const [timeSinceLastMeds, setTimeSinceLastMeds] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -8,7 +8,7 @@ const MedTimerDisplay = () => {
   useEffect(() => {
     const fetchTimeSinceLastMeds = async () => {
       try {
-        const response = await fetch('https://kevinatruong.com/api/med/check');
+        const response = await fetch(`https://kevinatruong.com/api/med/check/${medName}`)
         if (!response.ok) {
           throw new Error('Failed to fetch timer data');
         }

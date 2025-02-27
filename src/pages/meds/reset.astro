@@ -2,13 +2,15 @@
 import Layout from '../../layouts/Layout.astro';
 import MedTimerDisplay from '../../components/MedTimer.jsx';
 import MedResetButton from '../../components/MedTimerReset.jsx';
+
+const medicationName = "bupropion";
 ---
 
 <Layout title="meds reset - kevinatruong">
 	<main>
         <h4>MEDICATION TIMER RESET</h4>
-        <MedTimerDisplay client:load/>
-        <MedResetButton client:load/>
+        <MedTimerDisplay client:load medName={medicationName} />
+        <MedResetButton client:load medName={medicationName} />
 	</main>
 </Layout>
 
