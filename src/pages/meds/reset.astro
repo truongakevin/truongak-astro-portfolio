@@ -10,7 +10,7 @@ const medicationName = "bupropion";
 	<main>
         <h4>MEDICATION TIMER RESET</h4>
         <MedTimerDisplay client:load medName={medicationName} />
-        <MedResetButton client:load medName={medicationName} minWaitTime={43200} />
+        <MedResetButton client:load medName={medicationName} minWaitTime={(12)*60*60} />
 	</main>
 </Layout>
 
