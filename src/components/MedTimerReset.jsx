@@ -58,7 +58,7 @@ const MedResetButton = ({ medName, minWaitTime }) => {
 
   return (
     <div>
-      <button style={buttonStyle} onClick={handleResetTimer} disabled={!canTakeMed}>Reset Timer</button>
+      <button style={buttonStyle} onClick={handleResetTimer} disabled={!canTakeMed}>RESET TIMER</button>
     </div>
   );
 };
