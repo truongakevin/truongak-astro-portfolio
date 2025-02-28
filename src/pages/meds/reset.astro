@@ -9,14 +9,18 @@ const medicationName = "bupropion";
 <Layout title="meds reset - kevinatruong">
 	<main>
         <h1>MEDICATION TIMER RESET</h1>
+        <h2>BUPROPION</h2>
         <MedTimerDisplay client:load medName={medicationName} />
-        <MedResetButton client:load medName={medicationName} minWaitTime={(12)*60*60} />
+        <MedResetButton client:load medName={medicationName} minWaitTime={(16)*60*60} />
 	</main>
 </Layout>
 
 <style>
     h1 {
-        margin: 50px 0px 25px;
+        margin: 50px 0px 10px;
+    }
+    h2 {
+        margin: 0px;
     }
 	@media screen and (max-width: 768px){
         main {
