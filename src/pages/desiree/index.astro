@@ -3,8 +3,10 @@ import Layout from '../../layouts/Layout.astro';
 import MedTimerDisplay from '../../components/MedTimer.jsx';
 import MedResetButton from '../../components/MedTimerReset.jsx';
 
-const medicationName1 = "sleep";
-const medicationName2 = "happy";
+const medicationName1 = "DES_XL_SLP";
+const medicationName2 = "DES_IR_SLP";
+const medicationName3 = "DES_OTH_SLP";
+const medicationName4 = "DES_DRST";
 ---
 
 <Layout title="des meds - kevinatruong">
@@ -12,19 +14,33 @@ const medicationName2 = "happy";
         <h1 id="title">TIME SINCE DESIREE TOOK HER MEDICATION</h1>
 
         <div class="timers">
-            <h2>SLEEPY MEDS</h2>
+            <h2>RITALIN XL</h2>
             <MedTimerDisplay client:load medName={medicationName1} />
-            <MedResetButton client:load medName={medicationName1} minWaitTime={(4)*60*60} />
-            
-            <h2>HAPPY MEDS</h2>
+            <MedResetButton client:load medName={medicationName1} minWaitTime={(16)*60*60} />
+
+            <h2>RITALIN IR</h2>
             <MedTimerDisplay client:load medName={medicationName2} />
-            <MedResetButton client:load medName={medicationName2} minWaitTime={(12)*60*60} />
+            <MedResetButton client:load medName={medicationName2} minWaitTime={(4)*60*60} />
+            
+            <h2>CYTOMEL</h2>
+            <MedTimerDisplay client:load medName={medicationName3} />
+            <MedResetButton client:load medName={medicationName3} minWaitTime={(16)*60*60} />
+            
+            <h2>ABILIFY</h2>
+            <MedTimerDisplay client:load medName={medicationName4} />
+            <MedResetButton client:load medName={medicationName4} minWaitTime={(16)*60*60} />
         </div>
 
 	</main>
 </Layout>
 
 <style is:inline>
+    nav {
+        display: none!important;
+    }
+    main {
+        font-size: 1em;
+    }
     #title {
         margin: 50px 0px 25px;
     }
