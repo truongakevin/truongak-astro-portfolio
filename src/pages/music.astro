@@ -15,16 +15,19 @@ const spotifyData = await response.json();
 </Layout>
 
 <style is:inline>
+	* {
+		margin: 0;
+	}
 	img{
 		width: 100px;
 		height: 100px;
 	}
 	main {
-		margin-left: 0;
-		margin-right: 0;
+		padding-left: 0;
+		padding-right: 0;
 	}
 	h2 {
-		margin: 40px 20px 10px;
+		padding: 40px 20px 10px;
 	}
 	img {
 		object-fit: cover;
@@ -38,10 +41,10 @@ const spotifyData = await response.json();
 	}
 	.profile {
 		display: flex;
-		margin-left: 20px;
+		padding-left: 20px;
 	}
 	.profile-pic {
-		margin: auto 0px;
+		padding: auto 0px;
 		justify-content: center;
 	}
 	.profile-pic img {
@@ -50,19 +53,19 @@ const spotifyData = await response.json();
 	}
 	.profile-info {
 		text-align: left;
-		margin: 10px;
-		margin-right: 0;
+		padding: 10px;
+		padding-right: 0;
 	}
 	.profile-info a {
 		color: var(--primary);
 		text-decoration: none;
 		font-size: 2.5em;
-		margin: 0;
+		padding: 0;
 	}
 	.profile-info a h1 {
 	}
 	.profile-info > * {
-		margin: 5px 0;
+		padding: 5px 0;
 	}
 	
 	/* currently playing div ============================ */
@@ -70,36 +73,36 @@ const spotifyData = await response.json();
 		font-size: .8em;
 	}
 	.currently-playing h3 {
-		margin: 5px 0;
-		margin-top: 10px;
+		padding: 5px 0;
+		padding-top: 10px;
 	}
 	.currently-playing-container {
-		margin: auto 0;
+		padding: auto 0;
 		display: block;
 	}
 	.currently-playing-container > * {
 		padding: 0;
 	}
 	.currently-playing-pic {
-		margin: auto 0 0 0;
+		padding: auto 0 0 0;
 	}
 	.currently-playing-pic img {
 		width: 75px;
 		height: 75px;
 	}
 	.currently-playing-info {
-		margin: auto 0;
+		padding: auto 0;
 		display: flex;
 	}
 	.currently-playing-song {
-		margin: auto 10px auto 0;
-		margin-left: 10px;
+		padding: auto 10px auto 0;
+		padding-left: 10px;
 	}
 	.currently-playing-song > * {
-		margin:	0;
+		padding:	0;
 	}
 	.progress-container {
-		margin: 0px 0;
+		padding: 0px 0;
 	}
 	.progress-bar-container {
 		display: block;
@@ -115,7 +118,7 @@ const spotifyData = await response.json();
 		background-color: #111111;
 	}
 	.progress-time h6 {
-		margin: 0;
+		padding: 0;
 	}
 	@media screen and (max-width: 768px) {
 		.currently-playing-container {
@@ -141,7 +144,7 @@ const spotifyData = await response.json();
 	}
 	.artist {
 		flex: 0 0 150px;
-		margin-left: 20px;
+		padding-left: 20px;
 	}
 	.artist img {
 		width: 100%;
@@ -149,30 +152,30 @@ const spotifyData = await response.json();
 		border-radius: 100px;
 	}
 	.artist > * {
-		margin: 2px;
+		padding: 2px;
 	}
 	
 	/* tracks div ============================ */
 	.tracks {
-		margin-left: 20px;
+		padding-left: 20px;
 	}
 	.track {
 		display: flex;
 		flex-direction: row;
-		margin: 5px;
+		padding: 5px;
 	}
 	.track-pic {
-		margin: auto 0px;
+		padding: auto 0px;
 	}
 	.track-pic img {
 		width: 85px;
 		height: 85px;
 	}
 	.track-info {
-		margin: auto 10px;
+		padding: auto 10px;
 	}
 	.track-info > * {
-		margin: 0;
+		padding: 0;
 	}
 
 	/* playlists div ============================ */
@@ -189,38 +192,38 @@ const spotifyData = await response.json();
 	}
 	.playlist {
 		flex: 0 0 250px;
-		margin-left: 20px;
+		padding-left: 20px;
 	}
 	.playlist img {
 		width: 100%;
 		height: 250px;
 	}
 	.playlist > * {
-		margin: 0;
+		padding: 0;
 	}
 	@media screen and (max-width: 768px) {
 		main {
-			margin: 0;
-			margin-top: 10px;
+			padding: 0;
+			padding-top: 0px;
 		}
 		h2 {
-			margin: 25px 10px 10px;
+			padding: 25px 10px 10px;
 		}
 		.profile {
-			margin: 15px 10px;
+			padding: 15px 10px 0px;
 		}
 		.profile-pic img {
 			width: 150px;
 			height: 175px;
 		}
 		.artist {
-			margin-left: 10px;
+			padding-left: 10px;
 		}
 		.tracks {
-			margin: 10px;
+			padding: 10px;
 		}
 		.playlist {
-			margin-left: 10px;
+			padding-left: 10px;
 		}
 	}
 </style>
