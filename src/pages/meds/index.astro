@@ -1,24 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import MedTimerDisplay from '../../components/MedTimer.jsx';
+import MedTimerDisplay from '../../components/MedTimer.tsx';
 
 const medicationName = "bupropion";
 ---
 
 <Layout title="meds - kevinatruong">
-	<main>
-        <h1>TIME SINCE KEVIN TOOK HIS MEDICATION</h1>
+	<div class="flex flex-col gap-2">
+        <h1>TIME SINCE KEVIN TOOK HIS MEDIKATION</h1>
         <MedTimerDisplay client:load medName={medicationName} />
-	</main>
+	</div>
 </Layout>
-
-<style>
-    h1 {
-        margin: 50px 0px 25px;
-    }
-	@media screen and (max-width: 768px){
-        h1 {
-            margin: 15px 0px 25px;
-        }
-	}
-</style>

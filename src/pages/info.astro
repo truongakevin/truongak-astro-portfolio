@@ -1,48 +1,21 @@
 ---
 
 import Layout from '../layouts/Layout.astro';
-import { getImages } from '../scripts/generateImages'
-const artImages = getImages("info").map((img) => `/info/${img}`);
 ---
 
 <Layout title="info - kevinatruong">
-	<main>
-        <div class="photos">
-            {artImages.map((image) => (
-              <img src={image} alt="me" />
-            ))}
+	<div class="flex flex-col gap-4">
+        <div class="object-cover w-[clamp(15rem,17vw,50rem)] h-[clamp(15rem,17vw,50rem)]">
+            <img src="/info/kevin_prof.jpeg" alt="me" />
         </div>
-        <div class="information">
-            <p>born in 2001</p>
-            <p>bacholors in computer science from colorado state</p>
-            <p>software engineer | <a id="resume" href="/info/resume.pdf">resume</a></p>
-            <p>develops software and apps</p>
-            <p>specializes in web development, systems administation, and machine learning</p>
-            <p>makes digital art, paintings, and drawings</p>
-            <!-- <p><a id="contact" href="/contact">email me</a></p> -->
+        <div class="flex flex-col gap-4 lg:gap-6">
+            <h3 class="!font-semibold">born in 2001</h3>
+            <h3 class="!font-semibold">bacholors in computer science from colorado state</h3>
+            <h3 class="!font-semibold">software engineer | <a class="underline" id="resume" href="/info/resume.pdf">resume</a></h3>
+            <h3 class="!font-semibold">develops software and apps</h3>
+            <h3 class="!font-semibold">specializes in web development, systems administation, and machine learning</h3>
+            <h3 class="!font-semibold">makes digital art, paintings, scultures, and drawings</h3>
+            <h3 class="!font-semibold"><a class="underline" id="contact" href="/contact">email me</a></h3>
         </div>
-	</main>
+	</div>
 </Layout>
-
-<style>
-	main {
-        font-weight: 500;
-	}
-    .photos img {
-        padding-right: 10px;
-        width: 30%;
-    }
-    @media screen and (max-width: 768px){
-        .photos img {
-            padding-right: 10px;
-            width: 45%;
-        }
-    }
-    P {
-        margin: 20px 0;
-    }
-    a {
-        /* text-decoration: none; */
-        color: var(--primary);
-    }
-</style>

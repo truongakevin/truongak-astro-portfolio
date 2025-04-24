@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+    font-family: 'CircularStd';
+    src: url('/fonts/CircularStd/CircularStd-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@import "tailwindcss";
+
+.font-helvetica {
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.font-circular {
+    font-family: 'CircularStd', sans-serif;
+}
+
+.font-rowdies {
+    font-family: 'Rowdies', cursive;
+}
+
+.font-worksans {
+    font-family: 'Work Sans', sans-serif;
+}
+
+@theme {
+    --breakpoint-xs: 413px;
+    --breakpoint-3xl: 1800px;
+    --font-archivo: "Archivo", sans-serif; 
+    --color-dark: #111111;
+    --color-accent: #8B8B8B;
+    --color-light: #F2EFEA;
+}
+
+@layer base {
+    * {
+        @apply leading-none;
+    }
+
+    input:-webkit-autofill,
+    textarea:-webkit-autofill,
+    select:-webkit-autofill {
+      box-shadow: 0 0 0 1000px var(--color-dark) inset !important;
+      -webkit-text-fill-color: var(--color-light) !important;
+      transition: background-color 9999s ease-in-out 0s;
+    }
+}
+
+::selection {
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+}
+
+h1 {
+    @apply text-[clamp(2.5rem,3.5vw,20rem)] font-bold;
+}
+
+h2 {
+    @apply text-[clamp(2rem,2.5vw,20rem)] font-bold;
+}
+
+h3 {
+    @apply text-[clamp(1.5rem,2vw,20rem)] font-bold;
+}
+
+h4 {
+    @apply text-[clamp(1.5rem,1.75vw,20rem)] font-bold;
+}
+
+h5 {
+    @apply text-[clamp(1.25rem,1.25vw,20rem)] font-bold;
+}
+
+h6 {
+    @apply text-[clamp(1.15rem,1.15vw,20rem)] font-bold;
+}
+
+p {
+    @apply text-[clamp(1rem,1vw,20rem)] font-semibold;
+}
+
+.album-cover {
+    @apply object-cover w-[clamp(4.5rem,4vw,20rem)] h-[clamp(4.5rem,4vw,20rem)];
+}
+
+
+@layer utilities {
+    .fade-slide-in {
+      @apply transition-all duration-500 ease-in-out;
+      @apply lg:translate-y-full lg:translate-x-0 translate-x-full;
+    }
+  
+    .fade-slide-in-active {
+      @apply translate-y-0 translate-x-0;
+    }
+  
+    .fade-slide-out {
+      @apply transition-all duration-500 ease-in-out;
+      @apply lg:-translate-y-full lg:translate-x-0 -translate-x-full;
+    }
+  
+    .fade-slide-out-active {
+      @apply lg:-translate-y-full lg:translate-x-0 -translate-x-full;
+    }
+}

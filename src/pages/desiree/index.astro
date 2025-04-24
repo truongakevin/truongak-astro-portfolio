@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import MedTimerDisplay from '../../components/MedTimer.jsx';
-import MedResetButton from '../../components/MedTimerReset.jsx';
+import MedTimerDisplay from '../../components/MedTimer.js';
+import MedResetButton from '../../components/MedTimerReset.js';
 
 const medicationName1 = "DES_XL_SLP";
 const medicationName2 = "DES_IR_SLP";
@@ -10,10 +10,10 @@ const medicationName4 = "DES_DRST";
 ---
 
 <Layout title="des meds - kevinatruong">
-	<main>
+	<div class="flex flex-col gap-4">
         <h1 id="title">TIME SINCE DESIREE TOOK HER MEDICATION</h1>
 
-        <div class="timers">
+        <div class="flex flex-col gap-4">
             <h2>RITALIN XR</h2>
             <MedTimerDisplay client:load medName={medicationName1} />
             <MedResetButton client:load medName={medicationName1} minWaitTime={(16)*60*60} />
@@ -31,32 +31,5 @@ const medicationName4 = "DES_DRST";
             <MedResetButton client:load medName={medicationName4} minWaitTime={(16)*60*60} />
             
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
-	</main>
+	</div>
 </Layout>
-
-<style is:inline>
-    nav {
-        display: none!important;
-    }
-    main {
-        font-size: 1em;
-    }
-    #title {
-        margin: 50px 0px 20px;
-        font-weight: 800;
-        font-size: 1.75em;
-    }
-    h2 {
-        color: var(--background);
-        margin: 30px 0px 0px;
-    }
-	@media screen and (max-width: 768px){
-        main {
-            text-align: center;
-        }
-	}
-</style>

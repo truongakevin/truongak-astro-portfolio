@@ -1,30 +1,15 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import MedTimerDisplay from '../../components/MedTimer.jsx';
-import MedResetButton from '../../components/MedTimerReset.jsx';
+import MedTimerDisplay from '../../components/MedTimer.tsx';
+import MedResetButton from '../../components/MedTimerReset.tsx';
 
 const medicationName = "bupropion";
 ---
 
 <Layout title="meds reset - kevinatruong">
-	<main>
-        <h1>MEDICATION TIMER RESET</h1>
+	<div class="flex flex-col gap-2">
         <h2>BUPROPION</h2>
         <MedTimerDisplay client:load medName={medicationName} />
-        <MedResetButton client:load medName={medicationName} minWaitTime={(16)*60*60} />
-	</main>
+        <MedResetButton client:load medName={medicationName} minWaitTime={(20)*60*60} />
+	</div>
 </Layout>
-
-<style>
-    h1 {
-        margin: 50px 0px 10px;
-    }
-    h2 {
-        margin: 0px;
-    }
-	@media screen and (max-width: 768px){
-        h1 {
-            margin: 10px 0px 10px;
-        }
-	}
-</style>

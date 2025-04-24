@@ -1,27 +1,11 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-// import TTSLogs from '../../components/ttsLogs.astro';
-import TTSLogs from '../../components/ttsLogs.jsx';
+import TTSLogs from '../../components/ttsLogs.tsx';
 
-// let logs = [];
-
-// // Function to fetch logs
-// async function fetchLogs() {
-//     const response = await fetch("https://kevinatruong.com/api/tts/logs");
-//     logs = await response.json();
-//     logs.reverse();
-// }
-// await fetchLogs();
 ---
-<Layout title="tts - kevinatruong">
-	<main>
-        <h1>TTS Logs</h1>
-        <TTSLogs client:load/>
-	</main>
+<Layout title="tts logs - kevinatruong">
+<div class="flex flex-col gap-4">
+    <h1>TTS Logs</h1>
+    <TTSLogs client:load/>
+</div>
 </Layout>
-
-<style>
-	h2 {
-		margin: 20px 0;
-	}
-</style>

@@ -1,93 +1,34 @@
 ---
 const { currentPath } = Astro.props;
-
-function isActive(path) {
-console.log(currentPath);
-return currentPath === path ? 'current' : '';
-}
+const navLinks = [
+  { id: "home",      href: "/",           label: "KEVINATRUONG" },
+  { id: "info",      href: "/info",       label: "INFO" },
+  { id: "contact",   href: "/contact",    label: "KONTAKT" },
+  { id: "projects",  href: "/projects",   label: "PROJEKTS" },
+  // { id: "meds",      href: "/meds",       label: "MEDIKATION" },
+  // { id: "tts",       href: "/tts",        label: "TTS" },
+  { id: "paintings",       href: "/paintings",  label: "PAINTINGS" },
+  { id: "music",     href: "/music",      label: "MUSIK" },
+  // { id: "tiktok",    href: "/tiktok",     label: "TIKTOK" },
+  // { id: "tiktok",    href: "/kevinbot",   label: "KEVINBOT" },
+];
 ---
 
-<nav>
-    <!-- <nav class={currentPath === ('/') ? 'nav-slide-in' : ''}> -->
-    <h1><a class={isActive('/')} href="/">KEVINATRUONG</a></h1>
-    <h1><a class={isActive('/info')} href="/info">INFO</a></h1>
-    <h1><a class={isActive('/contact')} href="/contact">KONTAKT</a></h1>
-    <h1><a class={isActive('/projects')} href="/projects">PROJEKTS</a></h1>
-    <h1><a class={isActive('/art')} href="/art">ART</a></h1>
-    <h1><a class={isActive('/music')} href="/music">MUSIK</a></h1>
+<nav class="text-right transition">
+  {navLinks.map(({ id, href, label }) => {
+    const isActive = currentPath === href;
+    return (
+      <h1 class="transition duration-300 group">
+      <a
+        id={`nav-${id}`}
+        href={href}
+        class={`break-words w-full transform group-hover:-traslate-x-8 transition duration-300 ${
+        isActive ? "text-accent pointer-events-none" : ""
+        }`}
+      >
+        {label}
+      </a>
+      </h1>
+    );
+  })}
 </nav>
-
-<style>
-    @media screen and (min-width: 768px){
-        nav {
-            width: 30%;
-            position: fixed;
-            height: 100vh;
-            z-index: 1;
-        }
-    }
-    h1 {
-        margin: 0px;
-    }
-    nav {
-        background-color: var(--primary);
-        align-items: end;
-        display: flex;
-        flex-direction: column;
-        padding: 100px 20px 0;
-    }
-
-    nav a {
-        color: var(--secondary);
-        text-decoration: none;
-        transition: all .25s ease-in-out;
-    }
-
-    nav a:hover {
-        padding-right: 25px;
-    }
-
-    nav a.current {
-        color: var(--accent);
-        pointer-events: none;
-        cursor: default;
-    }
-
-    nav a.current:hover {
-        margin-right: 0;
-    }
-
-    @keyframes navSlideIn {
-        0% {
-            width: 0%;
-            padding: 0;
-        }
-        50% {
-            width: 0%;
-        }
-        100% {
-            width: 30%;
-        }
-    }
-    
-    .nav-slide-in {
-        animation: navSlideIn 1.5s ease-in-out forwards;
-    }
-    
-    @media screen and (max-width: 768px){
-        nav {
-            padding: 10px 10px;
-        }
-        @keyframes navSlideIn {
-            0% {
-                margin: -250px auto;
-            }
-            50% {
-                margin: -250px auto;
-            }
-            100% {
-                margin: 0;
-            }
-        }
-    }
-</style>

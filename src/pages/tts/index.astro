@@ -3,76 +3,36 @@ import Layout from '../../layouts/Layout.astro';
 ---
 
 <Layout title="tts - kevinatruong">
-	<main>
-		<h1 id="title">SEND T<a href="/tts/logs">T</a>S</h1>
-		<h4>TTS MESSAGE WILL BE SENT TO KEVIN'S ROOM SPEAKER</h4>
-		<form id="ttsForm" autocomplete="off">
-			<label for="message">MESSAGE</label><br>
-			<textarea id="message" name="message" maxlength="64" required></textarea><br>
-            
-            <label for="voice_id">VOICE</label><br>
-            <div class="voices">
-                <select id="voice_id" name="voice_id" required>
-                    <option value="" disabled selected>Select a voice</option>
-                </select><br>
-                <button type="button" id="playPreviewButton">HEAR VOICE</button><br>
-            </div>
+	<div class="flex flex-col gap-2">
+		<div class="flex flex-col gap-1">
+			<h1 id="title">SEND TTS</h1>
+			<h4 class="text-accent">TTS MESSAGE WILL BE SENT TO KEVIN'S ROOM SPEAKER</h4>
+		</div>
+		<form id="ttsForm" autocomplete="off" class="flex flex-col gap-2">
+			<div class="flex flex-col gap-1">
+				<label for="message"><h3>MESSAGE</h3></label>
+				<textarea id="message" name="message" maxlength="64" required class="h-32 p-2 bg-dark text-light focus:outline-none"></textarea>
+			</div>
 			
-			<button type="submit" id="submitButton">
-				SEND
-			</button>
+			<div class="flex flex-col gap-1">
+				<label class="block" for="voice_id"><h3>VOICE</h3></label>
+				<div class="flex flex-row gap-4">
+					<select class="w-min py-2 bg-dark text-light focus:outline-none" id="voice_id" name="voice_id" required>
+						<option class="" selected>Select a voice</option>
+					</select>
+					<button type="button" id="playPreviewButton" class="lg:py-2 px-6 bg-dark text-light">
+						<h3>HEAR VOICE</h3>
+					</button>
+				</div>
+			</div>
+
+			<div class="">
+				<button type="submit" id="submitButton" class="py-2 px-6 bg-dark text-light">
+					<h3>SEND</h3>
+				</button>
+			</div>
 		</form>
-
-		<script src="../../scripts/ttsForm.js"></script>
-		<script src="../../scripts/ttsVoices.js"></script>
-	</main>
+		<script src="../../scripts/ttsForm.ts"></script>
+		<script src="../../scripts/ttsVoices.ts"></script>
+	</div>
 </Layout>
-
-<style>
-	h1 {
-		margin: 20px 0;
-	}
-	h4 {
-		margin: -15px 0px 20px;
-	}
-	a {
-		text-decoration: none;
-		color: var(--primary);
-	}
-	input, textarea, button, select {
-		background-color: var(--primary);
-		color: var(--secondary);
-		width: 60%;
-		height: 1.75em;
-		padding-left: .2em;
-		margin-top: 5px;
-		margin-bottom: 20px;
-		border: 5px solid var(--primary);
-		font-size: .75em;
-	}
-	textarea {
-		padding: 10px;
-		height: 300px;
-		width: 90%;
-	}
-	input:focus, textarea:focus, select:focus {
-		outline: none;
-	}
-	button {
-		width: 5em;
-		margin-bottom: 100;
-	}
-
-    .voices {
-        display: flex;
-    }
-    .voices select{
-        margin-right: 25px;
-    }
-    .voices button{
-        align-self: center;
-        font-size: .75em;
-        width: 8em;
-    }
-
-</style>

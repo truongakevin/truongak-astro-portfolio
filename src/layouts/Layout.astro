@@ -1,150 +1,37 @@
 ---
-interface Props {
-	title: string;
-}
-
-const { title } = Astro.props;
+import "../styles/global.css";
 import Nav from '../components/Nav.astro';
 const currentPath = Astro.url.pathname;
+const { title, noPadding = false } = Astro.props;
 
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="overflow-x-hidden lg:overflow-y-hidden">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="explore kevin truong's personal portfolio webpage!"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="explore kevin truong's personal portfolio webpage!"/>
 		<link rel="icon" href="/icon/favicon.png?" type="image/x-icon">
-		<meta name="generator" content={Astro.generator} />
-		<meta name="theme-color" content="#111111"/>
+		<meta name="theme-color" content="bg-dark"/>
 		<title>{title}</title>
-
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
-
-		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-V9BWSDY0JS"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-			gtag('config', 'G-V9BWSDY0JS');
-		</script>
 	</head>
-	<body>
-		<Nav currentPath={currentPath} />
-		<div class="content">
-			<slot />
+	<body class="flex flex-col lg:flex-row h-screen
+							bg-light text-dark
+	">
+		<div class="w-full lg:w-4/12 px-2 py-2 lg:px-4 lg:py-16
+							bg-dark text-light
+							transition-all duration-500 ease-in-out
+		">
+			<Nav currentPath={currentPath} />
 		</div>
-		<script src="../scripts/pageTransitions.js"></script>
+		<main id="page-main" 
+			class={`w-full lg:w-9/12 py-2 pb-8 lg:py-16 lg:overflow-y-auto llg:flex llg:flex-col-reverse
+				${noPadding ? "" : " lg:px-4 px-2"}
+				fade-slide-in
+			`}>
+			<slot />
+		</main>
 	</body>
+	<script src="../scripts/pageTransitions.ts"></script>
 </html>
-<style is:global>
-	:root {
-		/* --primary: #F2EFEA;
-		--secondary: #111111; */
-		--primary: #111111;
-		--secondary: #F2EFEA;
-		--accent: #8B8B8B;
-	}
-	html {
-		font-family: Archivo;
-		font-weight: 700;
-		font-size: 2em;
-		background: var(--secondary);
-	}
-	body::-webkit-scrollbar {
-		display: none;
-	}
-	body { 
-		margin: 0;
-		display: flex;
-		min-height: 100vh
-	}
-	@media screen and (min-width: 768px){
-		.content {
-			width: 100%;
-			margin-left: 30%;
-			padding-left: 40px;
-		}
-	}
-	main {
-		font-size: .75em;
-		animation: slideDown 0.5s ease-in-out forwards;
-		margin: 20px;
-		margin-top: 100px;
-		flex: 1;
-		color: var(--primary);
-		background-color: var(--secondary);
-		align-items: start;
-	}
-
-	@media screen and (max-width: 768px){
-		html {
-			font-size: 1.75em;
-		}
-		body {
-			display: block;
-		}
-		main {
-			margin: 15px;
-			margin-top: 15px;
-		}
-	}
-
-	@keyframes slideUp {
-		0% {
-			transform: translateY(0);
-			opacity: 1;
-		}
-		100% {
-			transform: translateY(-200%);
-			opacity: 0;
-		}
-    }
-	@keyframes slideDown {
-		0% {
-			transform: translateY(200%);
-			opacity: 0;
-		}
-		100% {
-			transform: translateY(0);
-			opacity: 1;
-		}
-	}
-	
-	.slide-up {
-		animation: slideUp 0.5s forwards;
-	}
-
-	.slide-down {
-		animation: slideDown 0.5s forwards;
-	}
-
-	@media screen and (max-width: 768px){
-		@keyframes slideUp {
-			0% {
-				transform: translateX(0);
-				opacity: 1;
-			}
-			100% {
-				transform: translateX(-100%);
-				opacity: 0;
-			}
-		}
-		@keyframes slideDown {
-			0% {
-				transform: translateX(100%);
-				opacity: 0;
-			}
-			100% {
-				transform: translateX(0);
-				opacity: 1;
-			}
-		}
-	}
-
-</style>
