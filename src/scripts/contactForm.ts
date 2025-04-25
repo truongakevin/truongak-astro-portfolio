@@ -19,7 +19,6 @@ if (contactForm && nameInput && emailInput && messageInput && submitButton && ti
     // submitButton.innerHTML = `<img class="w-20 h-20" src="https://global.discourse-cdn.com/sitepoint/original/3X/e/3/e352b26bbfa8b233050087d6cb32667da3ff809c.gif" alt="Loading"/>`;
     submitButton.disabled = true;
 
-    console.log(formData);
     try {
       const response = await fetch('https://kevinatruong.com/api/contact', {
         method: 'POST',
