@@ -13,23 +13,22 @@ const { title, noPadding = false } = Astro.props;
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="explore kevin truong's personal portfolio webpage!"/>
 		<link rel="icon" href="/icon/favicon.png?" type="image/x-icon">
-		<meta name="theme-color" content="bg-dark"/>
+		<meta name="theme-color" content="#111111"/>
 		<title>{title}</title>
 	</head>
-	<body class="flex flex-col lg:flex-row h-screen
-							bg-light text-dark
-	">
-		<div class="w-full lg:w-4/12 px-2 py-2 lg:px-4 lg:py-16
-							bg-dark text-light
-							transition-all duration-500 ease-in-out
+	<body class="flex flex-col lg:flex-row h-screen bg-light text-dark">
+		<div class="navdiv
+			w-full lg:w-4/12 px-2 py-2 lg:px-4 lg:py-16
+			bg-dark text-light
+			transition-all duration-500 ease-in-out
 		">
 			<Nav currentPath={currentPath} />
 		</div>
 		<main id="page-main" 
-			class={`w-full lg:w-9/12 py-2 pb-8 lg:py-16 lg:overflow-y-auto llg:flex llg:flex-col-reverse
-				${noPadding ? "" : " lg:px-4 px-2"}
-				fade-slide-in
-			`}>
+			class="contentdiv fade-slide-in
+			bg-light text-dark h-full
+				w-full lg:w-9/12 py-2 pb-8 lg:py-16 lg:overflow-y-auto lg:px-4 px-2
+		">
 			<slot />
 		</main>
 	</body>

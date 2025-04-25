@@ -6,29 +6,29 @@ import Layout from '../../layouts/Layout.astro';
 	<div class="flex flex-col gap-2">
 		<div class="flex flex-col gap-1">
 			<h1 id="title">SEND TTS</h1>
-			<h4 class="text-accent">TTS MESSAGE WILL BE SENT TO KEVIN'S ROOM SPEAKER</h4>
+			<h5 class="text-accent">TTS MESSAGE WILL BE SENT TO KEVIN'S ROOM SPEAKER</h5>
 		</div>
 		<form id="ttsForm" autocomplete="off" class="flex flex-col gap-2">
 			<div class="flex flex-col gap-1">
-				<label for="message"><h3>MESSAGE</h3></label>
+				<label for="message"><h4>MESSAGE</h4></label>
 				<textarea id="message" name="message" maxlength="64" required class="h-32 p-2 bg-dark text-light focus:outline-none"></textarea>
 			</div>
 			
 			<div class="flex flex-col gap-1">
-				<label class="block" for="voice_id"><h3>VOICE</h3></label>
+				<label class="block" for="voice_id"><h4>VOICE</h4></label>
 				<div class="flex flex-row gap-4">
 					<select class="w-min py-2 bg-dark text-light focus:outline-none" id="voice_id" name="voice_id" required>
 						<option class="" selected>Select a voice</option>
 					</select>
 					<button type="button" id="playPreviewButton" class="lg:py-2 px-6 bg-dark text-light">
-						<h3>HEAR VOICE</h3>
+						<h4>HEAR VOICE</h4>
 					</button>
 				</div>
 			</div>
 
 			<div class="">
 				<button type="submit" id="submitButton" class="py-2 px-6 bg-dark text-light">
-					<h3>SEND</h3>
+					<h5>SEND</h5>
 				</button>
 			</div>
 		</form>
