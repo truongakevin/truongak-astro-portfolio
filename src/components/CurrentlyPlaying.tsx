@@ -64,11 +64,11 @@ const CurrentlyPlaying: React.FC = () => {
         <div className='flex flex-col gap-1'>
           <div className="flex flex-row gap-1">
             <div className="flex-shrink-0">
-              <img className="album-cover" src={currentlyPlaying.track.album_image} alt={currentlyPlaying.track.album}/>
+              <img className=" object-cover w-[clamp(3.75rem,5vw,20rem)] h-[clamp(3.75rem,5vw,20rem)];" src={currentlyPlaying.track.album_image} alt={currentlyPlaying.track.album}/>
             </div>
             <div className="my-auto">
-              <h5 className=''>{currentlyPlaying.track.name}</h5>
-              <h6 className='text-accent'>{currentlyPlaying.track.artists}</h6>
+              <h4 className=''>{currentlyPlaying.track.name}</h4>
+              <h5 className='text-accent'>{currentlyPlaying.track.artists}</h5>
             </div>
           </div>
           <div className="block lg:w-2/3 h-[7px] mr-2 bg-accent rounded relative overflow-hidden">

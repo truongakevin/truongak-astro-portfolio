@@ -70,7 +70,7 @@ const SpotifyData: React.FC = () => {
 
       <div className='flex flex-col gap-2'>
         <h2>TOP ARTISTS THIS MONTH</h2>
-        <div className="px-[16px] overflow-y-hidden overflow-x-auto flex flex-row gap-2 w-[calc(100%+32px)] translate-x-[-16px] [&::-webkit-scrollbar]:hidden">
+        <div className="px-[16px] overflow-y-hidden overflow-x-auto flex flex-row gap-2 w-[calc(100%+24px)] translate-x-[-16px] [&::-webkit-scrollbar]:hidden">
           {spotifyData.top_artists.map((artist) => (
             <div className="" key={artist.id}>
               <img className="object-cover w-[clamp(8rem,12vw,50rem)] h-[clamp(8rem,12vw,50rem)] rounded-full" src={artist.image} alt={artist.name} />
@@ -89,8 +89,8 @@ const SpotifyData: React.FC = () => {
                 <img className="album-cover" src={track.album_image} alt={track.album} />
               </div>
               <div className="my-auto">
-                <h5>{track.name}</h5>
-                <h6 className='text-accent'>{track.artists}</h6>
+                <h4>{track.name}</h4>
+                <h5 className='text-accent'>{track.artists}</h5>
               </div>
             </div>
           ))}
@@ -98,7 +98,7 @@ const SpotifyData: React.FC = () => {
       </div>
 
       <h2>PLAYLISTS</h2>
-      <div className="px-[16px] overflow-y-hidden overflow-x-auto flex flex-row gap-2 lg:gap-4 w-[calc(100%+32px)] translate-x-[-16px] [&::-webkit-scrollbar]:hidden">
+      <div className="px-[16px] overflow-y-hidden overflow-x-auto flex flex-row gap-2 lg:gap-4 w-[calc(100%+24px)] translate-x-[-16px] [&::-webkit-scrollbar]:hidden">
         {spotifyData.user_playlists.map((playlist) => (
           <div className="flex-shrink-0" key={playlist.id}>
             <img className="object-cover w-[clamp(10rem,15vw,50rem)] h-[clamp(10rem,15vw,50rem)]" src={playlist.image} alt={playlist.name} />
