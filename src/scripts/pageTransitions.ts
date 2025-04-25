@@ -3,7 +3,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const links = document.querySelectorAll("a[href]");
   
     if (!main) return;
-  
+    if (window.location.pathname === "/tiktok/") {
+      main.classList.remove("fade-slide-in", "fade-slide-out", "fade-slide-out-active");
+      main.classList.add("fade-slide-in-active");
+      return;
+    }
+
     // Trigger fade-in after load
     requestAnimationFrame(() => {
       main.classList.add("fade-slide-in-active");

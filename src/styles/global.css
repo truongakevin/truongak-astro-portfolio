@@ -40,7 +40,7 @@
     * {
         @apply leading-none m-0 p-0 tracking-wide;
         box-sizing: border-box;
-    }
+      }
 
     input:-webkit-autofill,
     textarea:-webkit-autofill,
@@ -108,3 +108,11 @@ p {
       @apply lg:-translate-y-full lg:translate-x-0 -translate-x-full;
     }
 }
+
+/* Hide controls on mobile */
+@media only screen and (max-width: 768px) {
+    video::-webkit-media-controls {
+      display: none !important;
+    }
+}
+  

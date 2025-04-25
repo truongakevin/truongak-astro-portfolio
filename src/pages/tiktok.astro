@@ -1,0 +1,24 @@
+---
+import TiktokFeed from '../components/TiktokFeed';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="home - kevinatruong">
+  <TiktokFeed client:only="react" />
+</Layout>
+
+<style is:inline>
+  .navdiv {
+    display: none;
+  }
+  .contentdiv {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  html, body, * {
+    overflow: hidden;
+  }
+</style>
