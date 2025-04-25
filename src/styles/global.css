@@ -38,7 +38,8 @@
 
 @layer base {
     * {
-        @apply leading-none;
+        @apply leading-none m-0 p-0 tracking-wide;
+        box-sizing: border-box;
     }
 
     input:-webkit-autofill,
@@ -64,7 +65,7 @@ h2 {
 }
 
 h3 {
-    @apply text-[clamp(1.5rem,2vw,20rem)] font-bold;
+    @apply text-[clamp(1.5rem,2vw,20rem)] font-semibold;
 }
 
 h4 {
@@ -80,11 +81,11 @@ h6 {
 }
 
 p {
-    @apply text-[clamp(1rem,1vw,20rem)] font-semibold;
+    @apply text-[clamp(1rem,1vw,20rem)] font-normal;
 }
 
 .album-cover {
-    @apply object-cover w-[clamp(4.5rem,4vw,20rem)] h-[clamp(4.5rem,4vw,20rem)];
+    @apply object-cover w-[clamp(5rem,4vw,20rem)] h-[clamp(5rem,4vw,20rem)];
 }
 
 
