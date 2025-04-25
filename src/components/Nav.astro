@@ -13,8 +13,7 @@ const navLinks = [
   // { id: "tiktok",    href: "/kevinbot/",   label: "KEVINBOT" },
 ];
 ---
-
-<nav class="text-right transition">
+<nav class="flex flex-col -space-y-1 text-right transition">
   {navLinks.map(({ id, href, label }) => {
     const isActive = currentPath === href;
     return (
