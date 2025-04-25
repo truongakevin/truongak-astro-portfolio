@@ -46,11 +46,11 @@ const CurrentlyPlaying: React.FC = () => {
   }, [fetchInterval]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <h4>Loading...</h4>;
   }
 
   if (error) {
-    return <p>Error: {error}</p>;
+    return <h4>Error: {error}</h4>;
   }
 
   const currentlyPlaying = spotifyData?.currently_playing;
@@ -85,7 +85,7 @@ const CurrentlyPlaying: React.FC = () => {
           </h6>
         </div>
       ) : (
-        <p>Nothing Playing</p>
+        <h4 className='text-accent'>Nothing Playing</h4>
       )}
     </div>
   );
