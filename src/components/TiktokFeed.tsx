@@ -223,8 +223,10 @@ export default function TiktokFeed() {
         src={videoData ? `https://kevinatruong.com/api/tiktok/videos/${videoData.filename}` : undefined}
         onClick={togglePlayPause}
         controls={false}
+        autoPlay
         
       />
+      <Caption />
     </div>
   );
 }
