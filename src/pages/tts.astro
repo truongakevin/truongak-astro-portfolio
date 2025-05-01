@@ -1,5 +1,8 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import Layout from '../layouts/Layout.astro';
+
+import TTSLogs from '../components/ttsLogs.tsx';
+
 ---
 
 <Layout title="tts - kevinatruong">
@@ -32,7 +35,13 @@ import Layout from '../../layouts/Layout.astro';
 				</button>
 			</div>
 		</form>
-		<script src="../../scripts/ttsForm.ts"></script>
-		<script src="../../scripts/ttsVoices.ts"></script>
+		<br />
+		<br />
+		<br />
+		<br />
+		<h2>TTS Logs</h2>
+    <TTSLogs client:load/>
+		<script src="../scripts/ttsForm.ts"></script>
+		<script src="../scripts/ttsVoices.ts"></script>
 	</div>
 </Layout>

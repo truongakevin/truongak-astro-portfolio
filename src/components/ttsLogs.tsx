@@ -44,18 +44,18 @@ const TTSLogs: React.FC = () => {
       {Object.entries(groupedLogs).map(([date, entries]) => (
         <div key={date} className='flex flex-col gap-1'>
           <h3>{date}</h3>
-          <ul className='flex flex-col gap-2'>
+          <ul className='flex flex-col gap-4'>
             {entries.map(log => {
               const [day, time, ampm] = log.timestamp.split(' ');
               const logTime = `${time} ${ampm.toLowerCase()}`;
               return (
                 <li key={log.timestamp} className='w-full'>
-                    <div className='flex flex-row justify-between items-end'>
-                    <div className='flex flex-col'>
-                      <h6>{log.voice_name}:</h6>
-                      <span>{log.message}</span>
-                    </div>
-                    <span>{logTime}</span>
+                    <div className='flex flex-row gap-4 justify-between items-start'>
+                      <div className='flex flex-col'>
+                        <h5>{log.voice_name}:</h5>
+                        <h5 className='break-all !font-normal'>{log.message}</h5>
+                      </div>
+                    <h6 className='whitespace-nowrap !font-extralight'>{logTime}</h6>
                 </div>
                   </li>
               );
