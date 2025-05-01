@@ -6,7 +6,7 @@ const artImages = getImages("art").map((img) => `/art/${img}`);
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="paintings - kevinatruong">
+<Layout title="art - kevinatruong">
     <div class="lg:columns-2 gap-3 [column-fill:_balance] lg:[&>img]:mb-0">
         {artImages.map((image) => (
           <img src={image} alt="Art" class="w-full object-cover shadow-xl mb-4 transition" />
