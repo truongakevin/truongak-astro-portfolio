@@ -7,7 +7,7 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="art - kevinatruong">
-    <div class="lg:columns-2 gap-3 [column-fill:_balance] lg:[&>img]:mb-0">
+    <div class="lg:columns-2 gap-3 [column-fill:_balance]">
         {artImages.map((image) => (
           <img src={image} alt="Art" class="w-full object-cover shadow-xl mb-4 transition" />
         ))}
