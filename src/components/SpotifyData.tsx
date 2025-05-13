@@ -102,7 +102,7 @@ const SpotifyData: React.FC = () => {
         {spotifyData.user_playlists.map((playlist) => (
           <div className="flex-shrink-0" key={playlist.id}>
             <img className="object-cover w-[clamp(10rem,15vw,50rem)] h-[clamp(10rem,15vw,50rem)]" src={playlist.image} alt={playlist.name} />
-            <h4 className='w-[clamp(10rem,15vw,50rem)]'>{playlist.name}</h4>
+            <h4 className='break-words w-[clamp(10rem,15vw,50rem)]'>{playlist.name}</h4>
           </div>
         ))}
       </div>
