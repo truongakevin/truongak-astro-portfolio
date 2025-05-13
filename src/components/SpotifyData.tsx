@@ -97,7 +97,7 @@ const SpotifyData: React.FC = () => {
         </div>
       </div>
 
-      <h2>PLAYLISTS</h2>
+      {/* <h2>PLAYLISTS</h2>
       <div className="px-[16px] overflow-y-hidden overflow-x-auto flex flex-row gap-2 lg:gap-4 w-[calc(100%+24px)] translate-x-[-16px] [&::-webkit-scrollbar]:hidden">
         {spotifyData.user_playlists.map((playlist) => (
           <div className="flex-shrink-0" key={playlist.id}>
@@ -105,7 +105,7 @@ const SpotifyData: React.FC = () => {
             <h4 className='break-words w-[clamp(10rem,15vw,50rem)]'>{playlist.name}</h4>
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };
