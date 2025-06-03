@@ -74,7 +74,7 @@ const SpotifyData: React.FC = () => {
           {spotifyData.top_artists.map((artist) => (
             <div className="" key={artist.id}>
               <img className="object-cover w-[clamp(8rem,12vw,50rem)] h-[clamp(8rem,12vw,50rem)] rounded-full" src={artist.image} alt={artist.name} />
-              <h5 className='w-[clamp(8rem,12vw,50rem)]'>{artist.name}</h5>
+              <h5 className='break-words w-[clamp(8rem,12vw,50rem)]'>{artist.name}</h5>
             </div>
           ))}
         </div>
@@ -89,8 +89,8 @@ const SpotifyData: React.FC = () => {
                 <img className="album-cover" src={track.album_image} alt={track.album} />
               </div>
               <div className="my-auto">
-                <h4>{track.name}</h4>
-                <h5 className='text-accent'>{track.artists}</h5>
+                <h4 className='break-words'>{track.name}</h4>
+                <h5 className='break-words text-accent'>{track.artists}</h5>
               </div>
             </div>
           ))}
