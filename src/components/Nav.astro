@@ -17,12 +17,12 @@ const navLinks = [
   {navLinks.map(({ id, href, label }) => {
     const isActive = currentPath === href;
     return (
-      <h1 class="transition duration-300 group">
+      <h1 class="transition duration-300">
       <a
         id={`nav-${id}`}
         href={href}
-        class={`break-words w-full transform group-hover:-traslate-x-8 transition duration-300 ${
-        isActive ? "text-accent pointer-events-none" : ""
+        class={`inline-block break-words w-full transform hover:-translate-x-4 transition duration-300 ${
+          isActive ? "text-accent pointer-events-none" : ""
         }`}
       >
         {label}
