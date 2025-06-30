@@ -70,7 +70,7 @@ const SpotifyData: React.FC = () => {
 
       <div className='flex flex-col gap-2'>
         <h2>TOP ARTISTS THIS MONTH</h2>
-        <div className="px-[16px] overflow-y-hidden overflow-x-auto flex flex-row gap-2 w-[calc(100%+24px)] translate-x-[-16px] [&::-webkit-scrollbar]:hidden">
+        <div className="px-[16px] overflow-y-hidden overflow-x-auto flex flex-row gap-2 w-[calc(100%+32px)] translate-x-[-16px] [&::-webkit-scrollbar]:hidden">
           {spotifyData.top_artists.map((artist) => (
             <div className="" key={artist.id}>
               <img className="object-cover w-[clamp(8rem,12vw,50rem)] h-[clamp(8rem,12vw,50rem)] rounded-full" src={artist.image} alt={artist.name} />
