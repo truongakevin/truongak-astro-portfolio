@@ -30,7 +30,7 @@ const { title, noPadding = false } = Astro.props;
 			gtag('config', 'G-V9BWSDY0JS');
 		</script>
 	</head>
-	<body class="flex flex-col lg:flex-row h-screen bg-light text-dark">
+	<body class="flex flex-col lg:flex-row lg:h-screen min-h-screen bg-light text-dark">
 		<div class="navdiv
 			w-full lg:w-4/12 px-2 py-2 lg:px-4 lg:py-16
 			bg-dark text-light
@@ -40,8 +40,8 @@ const { title, noPadding = false } = Astro.props;
 		</div>
 		<main id="page-main" 
 			class="contentdiv fade-slide-in
-			bg-light text-dark h-full
-				w-full lg:w-9/12 py-2 pb-8 lg:py-16 lg:overflow-y-auto lg:px-4 px-2
+			bg-light text-dark h-full border-none
+				w-full lg:w-9/12 lg:overflow-y-auto lg:py-16 lg:px-4 px-2 py-2 pb-8 
 		">
 			<slot />
 		</main>
